@@ -49,3 +49,4 @@
 - **Section 3: Hybrid Retrieval Layer**: Implemented Qdrant dense vector search (via `sentence-transformers`) and sparse search (`rank_bm25`) combined with Reciprocal Rank Fusion (RRF).
 - **Section 4: Core Validation Agents (LangGraph Orchestrator)**: Implemented Market, Risk, and Competitor analysis agents using LangGraph for multi-step execution.
 - **Section 5: Downstream Generation Agents**: Added Pitch Outline generation, Investor Matching using `sentence-transformers` semantic matching, and personalized Outreach Draft generation.
+- **Section 6: Scaling Advisor Agent**: Implemented `ScalingAgent` to provide qualitative scaling guidance based on retrieved case studies without making direct numeric recommendations.

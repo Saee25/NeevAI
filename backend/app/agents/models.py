@@ -60,3 +60,17 @@ class InvestorMatch(BaseModel):
 class OutreachDraft(BaseModel):
     subject: str
     body: str
+
+class ScalingDirection(BaseModel):
+    direction: str = Field(description="The scaling direction or strategy.")
+    reasoning: str = Field(description="Qualitative reasoning for this direction.")
+    sources: List[str] = Field(description="List of source URLs or citations.")
+
+class NotRecommended(BaseModel):
+    direction: str = Field(description="The scaling direction that is not recommended.")
+    reasoning: str = Field(description="Reasoning for why it is not recommended.")
+
+class ScalingGuidance(BaseModel):
+    feasible_directions: List[ScalingDirection] = Field(description="List of feasible scaling directions.")
+    not_recommended: List[NotRecommended] = Field(description="List of not recommended scaling directions.")
+    disclaimer: str = Field(default="Informational analysis based on comparable cases, not financial or investment advice.")
