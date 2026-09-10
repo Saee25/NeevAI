@@ -5,8 +5,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg: #FAF7F0;
+    --color-bg-card: #FFFFFF;
+    --color-primary: #3F6B4F;
+    --color-primary-light: #7C9885;
+    --color-accent: #C9A15A;
+    --color-text: #2B2B28;
+    --color-text-muted: #6B6B63;
+    --radius: 14px;
+  }
+
   body {
-    @apply bg-background text-textMain font-sans antialiased;
+    @apply bg-cream text-charcoal font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;

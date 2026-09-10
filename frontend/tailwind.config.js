@@ -7,10 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#FAF7F0',
-        primary: '#3F6B4F',
-        secondary: '#7C9885',
-        textMain: '#2B2B28'
+        cream: 'var(--color-bg)',
+        white: 'var(--color-bg-card)',
+        sage: {
+          DEFAULT: 'var(--color-primary)',
+          light: 'var(--color-primary-light)',
+        },
+        gold: 'var(--color-accent)',
+        charcoal: {
+          DEFAULT: 'var(--color-text)',
+          muted: 'var(--color-text-muted)',
+        }
+      },
+      borderRadius: {
+        DEFAULT: 'var(--radius)',
       },
       fontFamily: {
         serif: ['Fraunces', 'serif'],
