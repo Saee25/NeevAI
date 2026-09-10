@@ -40,3 +40,23 @@ class ValidationState(TypedDict):
     competitor_findings: Optional[CompetitorFindings]
     risk_findings: Optional[RiskFindings]
     final_report: Optional[FinalReport]
+
+class PitchOutline(BaseModel):
+    problem: str
+    solution: str
+    market_size: str
+    competitive_edge: str
+    ask: str
+
+class InvestorMatch(BaseModel):
+    name: str
+    firm: str
+    sector: str
+    stage: str
+    description: str
+    match_reason: str
+    disclaimer: str = "Sample match \u2014 verify current details before reaching out"
+
+class OutreachDraft(BaseModel):
+    subject: str
+    body: str

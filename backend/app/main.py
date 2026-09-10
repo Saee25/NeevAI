@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.routers import generate
 
 app = FastAPI(title="AI Co-Founder API")
+
+app.include_router(generate.router)
 
 # Configure CORS for frontend
 app.add_middleware(
