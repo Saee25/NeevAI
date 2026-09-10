@@ -4,7 +4,7 @@ import sys
 # Add backend to path so imports work
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from backend.app.agents.graph import run_validation
+from app.agents.graph import run_validation
 
 def test():
     ideas = [

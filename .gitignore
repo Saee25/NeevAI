@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 venv/
 .env
+.pytest_cache/
 
 # Data & Indexes
 backend/data/bm25_index.pkl

@@ -1,7 +1,7 @@
 from typing import Optional
-from backend.app.retrieval import vector_store
-from backend.app.retrieval.bm25_index import bm25_index
-from backend.app.models.retrieval import RetrievedChunk
+from app.retrieval import vector_store
+from app.retrieval.bm25_index import bm25_index
+from app.models.retrieval import RetrievedChunk
 
 COLLECTION_NAME = "corpus"
 

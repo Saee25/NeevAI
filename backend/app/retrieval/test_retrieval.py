@@ -1,4 +1,4 @@
-from backend.app.retrieval.hybrid_retriever import retrieve
+from app.retrieval.hybrid_retriever import retrieve
 
 def test():
     queries = [

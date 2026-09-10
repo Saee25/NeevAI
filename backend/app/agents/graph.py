@@ -1,9 +1,9 @@
 from langgraph.graph import StateGraph, START, END
-from backend.app.agents.models import ValidationState, FinalReport
-from backend.app.agents.market_agent import market_agent
-from backend.app.agents.competitor_agent import competitor_agent
-from backend.app.agents.risk_agent import risk_agent
-from backend.app.agents.aggregator_agent import aggregator_agent
+from app.agents.models import ValidationState, FinalReport
+from app.agents.market_agent import market_agent
+from app.agents.competitor_agent import competitor_agent
+from app.agents.risk_agent import risk_agent
+from app.agents.aggregator_agent import aggregator_agent
 
 def build_graph():
     builder = StateGraph(ValidationState)

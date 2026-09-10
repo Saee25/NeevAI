@@ -90,8 +90,8 @@ def build_chunking_pipeline():
     return documents_to_embed
 
 import sys
-from backend.app.retrieval import vector_store
-from backend.app.retrieval.bm25_index import bm25_index
+from app.retrieval import vector_store
+from app.retrieval.bm25_index import bm25_index
 
 if __name__ == "__main__":
     chunks = build_chunking_pipeline()

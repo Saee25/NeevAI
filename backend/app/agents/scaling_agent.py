@@ -1,6 +1,6 @@
-from backend.app.agents.models import ScalingGuidance
-from backend.app.retrieval.hybrid_retriever import retrieve
-from backend.app.agents.llm import get_llm
+from app.agents.models import ScalingGuidance
+from app.retrieval.hybrid_retriever import retrieve
+from app.agents.llm import get_llm
 from langchain_core.prompts import PromptTemplate
 
 class ScalingAgent:

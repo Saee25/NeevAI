@@ -1,6 +1,6 @@
-from backend.app.agents.models import ValidationState, RiskFindings
-from backend.app.retrieval.hybrid_retriever import retrieve
-from backend.app.agents.llm import get_llm
+from app.agents.models import ValidationState, RiskFindings
+from app.retrieval.hybrid_retriever import retrieve
+from app.agents.llm import get_llm
 from langchain_core.prompts import PromptTemplate
 
 def risk_agent(state: ValidationState) -> dict:

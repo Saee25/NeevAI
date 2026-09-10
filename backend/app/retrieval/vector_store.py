@@ -3,7 +3,7 @@ import uuid
 from typing import Optional
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct, Filter
-from backend.app.retrieval.embeddings import embed_texts
+from app.retrieval.embeddings import embed_texts
 
 QDRANT_URL = os.environ.get("QDRANT_URL", "http://localhost:6333")
 QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY", None)

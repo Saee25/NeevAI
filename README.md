@@ -23,9 +23,17 @@
    pip install -r requirements.txt
    ```
 5. Copy `.env.example` to `.env` and fill in your API keys.
-6. Run the server:
+6. Start local Qdrant via Docker:
+   ```bash
+   docker run -p 6333:6333 qdrant/qdrant
+   ```
+7. Run the server:
    ```bash
    uvicorn app.main:app --reload
+   ```
+8. Run tests:
+   ```bash
+   python -m pytest tests/
    ```
 
 ### Frontend Setup
@@ -50,3 +58,4 @@
 - **Section 4: Core Validation Agents (LangGraph Orchestrator)**: Implemented Market, Risk, and Competitor analysis agents using LangGraph for multi-step execution.
 - **Section 5: Downstream Generation Agents**: Added Pitch Outline generation, Investor Matching using `sentence-transformers` semantic matching, and personalized Outreach Draft generation.
 - **Section 6: Scaling Advisor Agent**: Implemented `ScalingAgent` to provide qualitative scaling guidance based on retrieved case studies without making direct numeric recommendations.
+- **Section 7: API Finalization**: Wired routers into `main.py`, added CORS, `slowapi` rate limiting (5 req/min for validate, 10 req/min for generate), global error handling, simple in-memory caching for validation, health endpoint, and comprehensive pytest coverage using mocked LLM responses.
