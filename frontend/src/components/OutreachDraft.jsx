@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { api } from '../lib/api';
 
-const OutreachDraft = () => {
-  const [subject, setSubject] = useState("AI-powered validation engine for early-stage founders");
-  const [body, setBody] = useState(`Hi Sarah,
+const SkeletonDraft = () => (
+  <div className="space-y-4 animate-pulse">
+    <div>
+      <div className="h-4 bg-sage/20 rounded w-16 mb-2"></div>
+      <div className="h-12 bg-cream-darker/30 rounded w-full"></div>
+    </div>
+    <div>
+      <div className="h-4 bg-sage/20 rounded w-20 mb-2"></div>
+      <div className="h-64 bg-cream-darker/30 rounded w-full"></div>
+    </div>
+  </div>
+);
 
-I saw your recent thesis on founder enablement and your investment in [SimilarStartup]—really aligned with what we're building at AI Co-Founder.
-
-We've built a hybrid RAG pipeline that gives founders instant, data-grounded feedback on their startup ideas (market sizing, risk flagging, competitor analysis) without hallucination. We're currently seeing [X] early usage.
-
-Would love to get your thoughts on our approach if you have 15 minutes next week.
-
-Best,
-[Your Name]`);
+const OutreachDraft = ({ report, investor }) => {
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!report || !investor) return;
+    setLoading(true);
+    api.generateOutreachDraft(report, investor)
+      .then(data => {
+        setSubject(data.subject);
+        setBody(data.body);
+        setError(null);
+      })
+      .catch(err => setError(err.message || "Something didn't load right — try again in a moment."))
+      .finally(() => setLoading(false));
+  }, [report, investor]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`);
@@ -21,41 +41,57 @@ Best,
     setTimeout(() => setCopied(false), 2000);
   };
 
+  if (!investor) return null;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white p-6 md:p-8 rounded-[var(--radius)] shadow-sm"
+      className="bg-white p-6 md:p-8 rounded-[var(--radius)] shadow-sm border border-sage/20"
     >
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-serif text-charcoal">Outreach Draft</h2>
+        <div>
+          <h2 className="text-2xl font-serif text-charcoal">Outreach Draft</h2>
+          <p className="text-sm text-charcoal-muted mt-1">For {investor.name} at {investor.firm}</p>
+        </div>
         <button 
           onClick={handleCopy}
-          className="text-sm font-medium bg-sage text-white px-4 py-2 rounded hover:bg-opacity-90 transition-all active:scale-95"
+          disabled={loading || error}
+          className="text-sm font-medium bg-sage text-white px-4 py-2 rounded hover:bg-opacity-90 transition-all active:scale-95 disabled:opacity-50"
         >
           {copied ? "Copied!" : "Copy to Clipboard"}
         </button>
       </div>
 
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-semibold text-charcoal-muted mb-1">Subject</label>
-          <input 
-            type="text" 
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            className="w-full p-3 border border-gray-200 rounded text-charcoal focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage font-sans transition-colors"
-          />
+      {error && !loading && (
+        <div className="text-red-500 font-sans p-4 bg-red-50 rounded mb-4">
+          {error}
         </div>
-        <div>
-          <label className="block text-sm font-semibold text-charcoal-muted mb-1">Message</label>
-          <textarea 
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            className="w-full min-h-[250px] p-4 border border-gray-200 rounded text-charcoal focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage font-sans resize-y transition-colors leading-relaxed"
-          />
+      )}
+
+      {loading && <SkeletonDraft />}
+
+      {!loading && !error && (
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold text-charcoal-muted mb-1">Subject</label>
+            <input 
+              type="text" 
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              className="w-full p-3 border border-gray-200 rounded text-charcoal focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage font-sans transition-colors"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-charcoal-muted mb-1">Message</label>
+            <textarea 
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              className="w-full min-h-[250px] p-4 border border-gray-200 rounded text-charcoal focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage font-sans resize-y transition-colors leading-relaxed"
+            />
+          </div>
         </div>
-      </div>
+      )}
     </motion.div>
   );
 };

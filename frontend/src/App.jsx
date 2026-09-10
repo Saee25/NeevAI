@@ -12,48 +12,21 @@ import OutreachDraft from './components/OutreachDraft';
 import ScalingAdvisor from './components/ScalingAdvisor';
 import ReportCard from './components/ReportCard';
 import { motion, AnimatePresence } from 'framer-motion';
-
-// Mock Data
-const MOCK_RESULTS = {
-  marketSizeFinding: "Total Addressable Market is estimated at $12B globally, with a $1.5B SOM.",
-  competitorFinding: "Found 3 close competitors; 2 successful exits and 1 failure due to execution.",
-  riskFinding: "High execution risk, moderate market risk. Regulatory risk is minimal.",
-  score: 78,
-  scoreSummary: "Strong potential, but execution will be the primary challenge.",
-  marketData: [
-    { name: 'TAM', value: 12000 },
-    { name: 'SAM', value: 4500 },
-    { name: 'SOM', value: 1500 }
-  ],
-  competitors: [
-    { name: 'Acme Corp', outcome: 'success', summary: 'Acquired for $200M after capturing 15% of the US market.', sourceLink: '#' },
-    { name: 'Beta Inc', outcome: 'failure', summary: 'Failed to find product-market fit, burned $5M in funding.', sourceLink: '#' }
-  ],
-  riskData: [
-    { subject: 'Market', value: 65 },
-    { subject: 'Execution', value: 85 },
-    { subject: 'Funding', value: 40 },
-    { subject: 'Regulatory', value: 20 }
-  ]
-};
+import { useValidation } from './hooks/useValidation';
 
 function App() {
   const [idea, setIdea] = useState('');
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [revealComplete, setRevealComplete] = useState(false);
-  const [results, setResults] = useState(null);
   const [activeTab, setActiveTab] = useState('report');
+  const [selectedInvestor, setSelectedInvestor] = useState(null);
+  const { isAnalyzing, results, rawReport, error, validateIdea, reset, setIsAnalyzing } = useValidation();
 
   const handleAnalyze = () => {
     if (!idea.trim()) return;
-    setIsAnalyzing(true);
     setRevealComplete(false);
     setActiveTab('report');
-    
-    // Simulate API call
-    setTimeout(() => {
-      setResults(MOCK_RESULTS);
-    }, 1000);
+    setSelectedInvestor(null);
+    validateIdea(idea);
   };
 
   return (
@@ -81,10 +54,16 @@ function App() {
                     value={idea}
                     onChange={(e) => setIdea(e.target.value)}
                   />
+                  {error && (
+                    <div className="text-red-500 text-sm font-sans px-2">
+                      {error}
+                    </div>
+                  )}
                   <div className="flex justify-end mt-2">
                     <button 
                       onClick={handleAnalyze}
-                      className="w-full md:w-auto bg-sage text-white px-8 py-3 min-h-[44px] rounded-[var(--radius)] font-medium text-lg hover:shadow-md hover:bg-opacity-95 transition-all duration-300 active:scale-[0.98]"
+                      disabled={isAnalyzing}
+                      className="w-full md:w-auto bg-sage text-white px-8 py-3 min-h-[44px] rounded-[var(--radius)] font-medium text-lg hover:shadow-md hover:bg-opacity-95 transition-all duration-300 active:scale-[0.98] disabled:opacity-50"
                     >
                       Analyze Idea
                     </button>
@@ -130,10 +109,10 @@ function App() {
                     <div className="flex-grow"></div>
                     <button 
                       onClick={() => {
-                        setIsAnalyzing(false);
-                        setResults(null);
+                        reset();
                         setRevealComplete(false);
                         setIdea('');
+                        setSelectedInvestor(null);
                       }}
                       className="text-sage hover:text-sage-light transition-colors font-medium whitespace-nowrap ml-4"
                     >
@@ -157,7 +136,7 @@ function App() {
                     <div className="bg-white p-8 rounded-[var(--radius)] shadow-sm">
                       <h3 className="text-xl font-serif text-charcoal mb-4">Synthesis</h3>
                       <p className="text-charcoal-muted leading-relaxed font-sans">
-                        The total addressable market is large, but to effectively capture the <GlossaryTooltip term="SOM" definition="Serviceable Obtainable Market: the portion of the market you can realistically capture.">Serviceable Obtainable Market</GlossaryTooltip>, you will need a strong go-to-market strategy. Based on similar startups, the primary <GlossaryTooltip term="Execution Risk" definition="The risk that a company will not be able to execute its business plan effectively.">execution risk</GlossaryTooltip> lies in customer acquisition costs. Ensure you validate distribution channels early.
+                        {results.marketReasoning || "The market context indicates promising areas, but clear positioning will be required to capture a substantial share."}
                       </p>
                     </div>
 
@@ -167,20 +146,26 @@ function App() {
 
                 {activeTab === 'pitch' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                    <PitchOutline />
+                    <PitchOutline report={rawReport} />
                   </motion.div>
                 )}
 
                 {activeTab === 'investors' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
-                    <InvestorMatches />
-                    <OutreachDraft />
+                    <InvestorMatches 
+                      report={rawReport} 
+                      onSelectInvestor={setSelectedInvestor} 
+                      selectedInvestor={selectedInvestor}
+                    />
+                    {selectedInvestor && (
+                      <OutreachDraft report={rawReport} investor={selectedInvestor} />
+                    )}
                   </motion.div>
                 )}
 
                 {activeTab === 'scaling' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                    <ScalingAdvisor />
+                    <ScalingAdvisor ideaText={idea} />
                   </motion.div>
                 )}
 
