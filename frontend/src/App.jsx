@@ -6,6 +6,11 @@ import MarketChart from './components/MarketChart';
 import CompetitorList from './components/CompetitorList';
 import RiskRadar from './components/RiskRadar';
 import GlossaryTooltip from './components/GlossaryTooltip';
+import PitchOutline from './components/PitchOutline';
+import InvestorMatches from './components/InvestorMatches';
+import OutreachDraft from './components/OutreachDraft';
+import ScalingAdvisor from './components/ScalingAdvisor';
+import ReportCard from './components/ReportCard';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Mock Data
@@ -37,11 +42,13 @@ function App() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [revealComplete, setRevealComplete] = useState(false);
   const [results, setResults] = useState(null);
+  const [activeTab, setActiveTab] = useState('report');
 
   const handleAnalyze = () => {
     if (!idea.trim()) return;
     setIsAnalyzing(true);
     setRevealComplete(false);
+    setActiveTab('report');
     
     // Simulate API call
     setTimeout(() => {
@@ -103,36 +110,79 @@ function App() {
                 className="space-y-8"
               >
                 <div className="flex justify-between items-center">
-                  <h2 className="text-3xl font-serif text-charcoal">Validation Report</h2>
-                  <button 
-                    onClick={() => {
-                      setIsAnalyzing(false);
-                      setResults(null);
-                      setRevealComplete(false);
-                      setIdea('');
-                    }}
-                    className="text-sage hover:text-sage-light transition-colors font-medium"
-                  >
-                    Start Over
-                  </button>
+                  <div className="flex gap-6 border-b border-gray-200 w-full overflow-x-auto pb-2">
+                    {['report', 'pitch', 'investors', 'scaling'].map(tab => (
+                      <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`text-lg font-serif pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                          activeTab === tab 
+                            ? 'border-sage text-sage' 
+                            : 'border-transparent text-charcoal hover:text-sage'
+                        }`}
+                      >
+                        {tab === 'report' ? 'Validation Report' :
+                         tab === 'pitch' ? 'Pitch Outline' :
+                         tab === 'investors' ? 'Investors & Outreach' :
+                         'Scaling Advisor'}
+                      </button>
+                    ))}
+                    <div className="flex-grow"></div>
+                    <button 
+                      onClick={() => {
+                        setIsAnalyzing(false);
+                        setResults(null);
+                        setRevealComplete(false);
+                        setIdea('');
+                      }}
+                      className="text-sage hover:text-sage-light transition-colors font-medium whitespace-nowrap ml-4"
+                    >
+                      Start Over
+                    </button>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <ReadinessScore score={results.score} summary={results.scoreSummary} />
-                  <RiskRadar data={results.riskData} />
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <MarketChart data={results.marketData} />
-                  <CompetitorList competitors={results.competitors} />
-                </div>
+                {activeTab === 'report' && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <ReadinessScore score={results.score} summary={results.scoreSummary} />
+                      <RiskRadar data={results.riskData} />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <MarketChart data={results.marketData} />
+                      <CompetitorList competitors={results.competitors} />
+                    </div>
 
-                <div className="bg-white p-8 rounded-[var(--radius)] shadow-sm">
-                  <h3 className="text-xl font-serif text-charcoal mb-4">Synthesis</h3>
-                  <p className="text-charcoal-muted leading-relaxed font-sans">
-                    The total addressable market is large, but to effectively capture the <GlossaryTooltip term="SOM" definition="Serviceable Obtainable Market: the portion of the market you can realistically capture.">Serviceable Obtainable Market</GlossaryTooltip>, you will need a strong go-to-market strategy. Based on similar startups, the primary <GlossaryTooltip term="Execution Risk" definition="The risk that a company will not be able to execute its business plan effectively.">execution risk</GlossaryTooltip> lies in customer acquisition costs. Ensure you validate distribution channels early.
-                  </p>
-                </div>
+                    <div className="bg-white p-8 rounded-[var(--radius)] shadow-sm">
+                      <h3 className="text-xl font-serif text-charcoal mb-4">Synthesis</h3>
+                      <p className="text-charcoal-muted leading-relaxed font-sans">
+                        The total addressable market is large, but to effectively capture the <GlossaryTooltip term="SOM" definition="Serviceable Obtainable Market: the portion of the market you can realistically capture.">Serviceable Obtainable Market</GlossaryTooltip>, you will need a strong go-to-market strategy. Based on similar startups, the primary <GlossaryTooltip term="Execution Risk" definition="The risk that a company will not be able to execute its business plan effectively.">execution risk</GlossaryTooltip> lies in customer acquisition costs. Ensure you validate distribution channels early.
+                      </p>
+                    </div>
+
+                    <ReportCard score={results.score} summary={results.scoreSummary} />
+                  </motion.div>
+                )}
+
+                {activeTab === 'pitch' && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    <PitchOutline />
+                  </motion.div>
+                )}
+
+                {activeTab === 'investors' && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
+                    <InvestorMatches />
+                    <OutreachDraft />
+                  </motion.div>
+                )}
+
+                {activeTab === 'scaling' && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    <ScalingAdvisor />
+                  </motion.div>
+                )}
 
               </motion.div>
             )}
