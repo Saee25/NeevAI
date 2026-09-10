@@ -1,4 +1,4 @@
-# AI Co-Founder - Startup Idea Validation Platform
+# Neev AI
 
 ## Setup Instructions
 
@@ -41,3 +41,9 @@
    ```bash
    npm run dev
    ```
+
+## Current Progress
+
+- **Section 1: Project Initialization**: Base FastAPI backend and React frontend structure.
+- **Section 2: Data Ingestion Pipeline**: Corpus chunking, preprocessing, and glossary extraction setup.
+- **Section 3: Hybrid Retrieval Layer**: Implemented Qdrant dense vector search (via `sentence-transformers`) and sparse search (`rank_bm25`) combined with Reciprocal Rank Fusion (RRF).

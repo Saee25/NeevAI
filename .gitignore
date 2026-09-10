@@ -5,6 +5,10 @@ __pycache__/
 venv/
 .env
 
+# Data & Indexes
+backend/data/bm25_index.pkl
+qdrant_storage/
+
 # Node
 node_modules/
 dist/

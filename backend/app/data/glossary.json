@@ -1,0 +1,154 @@
+[
+  {
+    "term": "TAM",
+    "short_definition": "Total Addressable Market: the overall revenue opportunity available if a product achieves 100% market share."
+  },
+  {
+    "term": "SAM",
+    "short_definition": "Serviceable Available Market: the portion of TAM targeted by your product within your specific geographic reach."
+  },
+  {
+    "term": "SOM",
+    "short_definition": "Serviceable Obtainable Market: the realistic portion of SAM you can capture in the near term."
+  },
+  {
+    "term": "Burn rate",
+    "short_definition": "The rate at which a company spends its cash reserves before generating positive cash flow."
+  },
+  {
+    "term": "Runway",
+    "short_definition": "The number of months a startup can continue operating before it runs out of money."
+  },
+  {
+    "term": "ARR",
+    "short_definition": "Annual Recurring Revenue: the predictable annualized revenue generated from subscriptions."
+  },
+  {
+    "term": "MRR",
+    "short_definition": "Monthly Recurring Revenue: the predictable monthly revenue generated from subscriptions."
+  },
+  {
+    "term": "Cap table",
+    "short_definition": "A spreadsheet detailing who owns what percentage of the company, including founders and investors."
+  },
+  {
+    "term": "Dilution",
+    "short_definition": "The decrease in ownership percentage for existing shareholders when new shares are issued."
+  },
+  {
+    "term": "Valuation",
+    "short_definition": "The estimated total financial worth of a company."
+  },
+  {
+    "term": "Pre-money",
+    "short_definition": "A company's valuation right before receiving a new round of investment."
+  },
+  {
+    "term": "Post-money",
+    "short_definition": "A company's valuation immediately after a new investment is added (pre-money plus investment)."
+  },
+  {
+    "term": "Equity",
+    "short_definition": "Ownership interest in a company, usually represented by shares of stock."
+  },
+  {
+    "term": "Convertible note",
+    "short_definition": "Short-term debt that converts into equity during a future funding round."
+  },
+  {
+    "term": "SAFE",
+    "short_definition": "Simple Agreement for Future Equity: a contract giving investors future shares without setting a valuation today."
+  },
+  {
+    "term": "Unit economics",
+    "short_definition": "The direct revenues and costs associated with a single unit of your business model."
+  },
+  {
+    "term": "CAC",
+    "short_definition": "Customer Acquisition Cost: the total sales and marketing cost required to acquire a new customer."
+  },
+  {
+    "term": "LTV",
+    "short_definition": "Lifetime Value: the total revenue a business expects to earn from a single customer over time."
+  },
+  {
+    "term": "Churn",
+    "short_definition": "The percentage of customers who stop using your product or cancel their subscription over a period."
+  },
+  {
+    "term": "Gross margin",
+    "short_definition": "Net sales revenue minus the cost of goods sold, indicating the profitability of production."
+  },
+  {
+    "term": "Series A/B/C",
+    "short_definition": "Progressive rounds of venture capital funding aimed at scaling a business that has achieved product-market fit."
+  },
+  {
+    "term": "Angel investor",
+    "short_definition": "An affluent individual who provides personal capital for a startup, usually in its very early stages."
+  },
+  {
+    "term": "VC",
+    "short_definition": "Venture Capitalist: a professional investor who manages a fund to invest in high-growth startups."
+  },
+  {
+    "term": "Term sheet",
+    "short_definition": "A non-binding document outlining the basic terms and conditions of an investment."
+  },
+  {
+    "term": "Vesting",
+    "short_definition": "The process of earning full ownership of shares or options over time or upon meeting milestones."
+  },
+  {
+    "term": "ESOP",
+    "short_definition": "Employee Stock Ownership Plan: a benefit plan giving workers ownership interest in the company."
+  },
+  {
+    "term": "Bootstrap",
+    "short_definition": "Building a company from the ground up with nothing but personal savings and operational revenue."
+  },
+  {
+    "term": "Pivot",
+    "short_definition": "Fundamentally changing the business model or product direction based on market feedback."
+  },
+  {
+    "term": "MVP",
+    "short_definition": "Minimum Viable Product: a basic version of a product with just enough features to test core assumptions."
+  },
+  {
+    "term": "Product-market fit",
+    "short_definition": "The stage where a product successfully satisfies a strong, established market demand."
+  },
+  {
+    "term": "GTM strategy",
+    "short_definition": "Go-To-Market strategy: an action plan specifying how a company will reach target customers and achieve competitive advantage."
+  },
+  {
+    "term": "Revenue model",
+    "short_definition": "A framework for how a business generates income from its value proposition."
+  },
+  {
+    "term": "EBITDA",
+    "short_definition": "Earnings Before Interest, Taxes, Depreciation, and Amortization: a measure of a company's operational profitability."
+  },
+  {
+    "term": "Working capital",
+    "short_definition": "The difference between a company's current assets and its current liabilities."
+  },
+  {
+    "term": "Scalability",
+    "short_definition": "The capability of a system or business to handle a growing amount of work or sales gracefully."
+  },
+  {
+    "term": "Moat",
+    "short_definition": "A distinct competitive advantage that protects a company's market share from competitors."
+  },
+  {
+    "term": "Network effect",
+    "short_definition": "A phenomenon where a product or service becomes more valuable to users as more people use it."
+  },
+  {
+    "term": "Exit strategy",
+    "short_definition": "A founder or investor's plan to sell their stake in a company, typically via an acquisition or IPO."
+  }
+]
