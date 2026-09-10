@@ -6,6 +6,7 @@ from app.agents.scaling_agent import ScalingAgent
 from app.agents.graph import run_validation
 from app.middleware.rate_limit import limiter
 import re
+from cachetools import LRUCache
 
 router = APIRouter(prefix="/validate", tags=["validate"])
 
@@ -13,7 +14,7 @@ scaling_agent = ScalingAgent()
 
 # Simple in-memory cache
 # Key: normalized idea_text, Value: FinalReport
-_validation_cache: Dict[str, FinalReport] = {}
+_validation_cache: LRUCache = LRUCache(maxsize=100)
 
 class ValidateRequest(BaseModel):
     idea_text: str

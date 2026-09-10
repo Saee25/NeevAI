@@ -5,8 +5,15 @@ from app.routers import generate, validate
 from app.middleware.rate_limit import limiter, custom_rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 import logging
+from contextlib import asynccontextmanager
+from app.retrieval.vector_store import close_client
 
-app = FastAPI(title="AI Co-Founder API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    close_client()
+
+app = FastAPI(title="AI Co-Founder API", lifespan=lifespan)
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, custom_rate_limit_exceeded_handler)

@@ -1,5 +1,6 @@
 import os
 import pickle
+import re
 from rank_bm25 import BM25Okapi
 
 BM25_INDEX_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "bm25_index.pkl")
@@ -23,7 +24,7 @@ class BM25Retriever:
         Each chunk is a dict with 'text' and 'metadata'.
         """
         self.corpus = chunks
-        tokenized_corpus = [chunk["text"].lower().split(" ") for chunk in chunks]
+        tokenized_corpus = [re.findall(r'\w+', chunk["text"].lower()) for chunk in chunks]
         self.bm25 = BM25Okapi(tokenized_corpus)
         
         # Save to disk
@@ -38,7 +39,7 @@ class BM25Retriever:
         if not self.bm25:
             return []
             
-        tokenized_query = query.lower().split(" ")
+        tokenized_query = re.findall(r'\w+', query.lower())
         scores = self.bm25.get_scores(tokenized_query)
         
         # Get top k indices

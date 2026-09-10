@@ -12,3 +12,4 @@ pydantic-settings
 slowapi
 python-dotenv
 langchain-text-splitters
+cachetools

@@ -5,10 +5,16 @@ from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct, Filter
 from app.retrieval.embeddings import embed_texts
 
-QDRANT_URL = os.environ.get("QDRANT_URL", "http://localhost:6333")
+QDRANT_URL = os.environ.get("QDRANT_URL", None)
 QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY", None)
 
-client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+if QDRANT_URL:
+    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+else:
+    # Use local disk mode (No Docker required)
+    local_path = os.path.join(os.path.dirname(__file__), "..", "data", "qdrant_storage")
+    os.makedirs(local_path, exist_ok=True)
+    client = QdrantClient(path=local_path)
 
 def init_collection(name: str, vector_size: int = 384):
     """
@@ -60,11 +66,18 @@ def search(name: str, query: str, top_k: int = 5, filter_dict: Optional[dict] = 
         ]
         qdrant_filter = Filter(must=conditions)
         
-    results = client.search(
+    response = client.query_points(
         collection_name=name,
-        query_vector=query_vector,
+        query=query_vector,
         limit=top_k,
         query_filter=qdrant_filter
     )
     
-    return [{"payload": res.payload, "score": res.score} for res in results]
+    return [{"payload": res.payload, "score": res.score} for res in response.points]
+
+def close_client():
+    """
+    Gracefully shuts down the Qdrant connection.
+    """
+    if hasattr(client, "close"):
+        client.close()
