@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+langchain
+langgraph
+langchain-groq
+langchain-google-genai
+qdrant-client
+rank-bm25
+sentence-transformers
+pydantic
+pydantic-settings
+slowapi
+python-dotenv
