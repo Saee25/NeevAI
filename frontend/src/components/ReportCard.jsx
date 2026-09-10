@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { motion } from 'framer-motion';
 
-const ReportCard = ({ score, summary }) => {
+const ReportCard = ({ score, summary, marketData, risks }) => {
   const cardRef = useRef(null);
   const [exporting, setExporting] = useState(false);
 
@@ -23,6 +23,9 @@ const ReportCard = ({ score, summary }) => {
     }
   };
 
+  const tamText = marketData?.find(m => m.name === 'TAM')?.text;
+  const somText = marketData?.find(m => m.name === 'SOM')?.text;
+
   return (
     <div className="flex flex-col items-center gap-6 my-8">
       {/* The visible and exportable card */}
@@ -41,20 +44,20 @@ const ReportCard = ({ score, summary }) => {
           {score}
           <span className="text-2xl text-charcoal-muted/50 font-sans">/100</span>
         </div>
-        <p className="text-lg text-charcoal font-medium mt-2">
-          "Strong potential, but execution will be the primary challenge."
+        <p className="text-sm text-charcoal font-medium mt-2 max-w-sm">
+          {score >= 70 ? "High viability with strong market positioning." : score >= 40 ? "Moderate readiness with key strategic hurdles." : "Early concept requiring deeper validation."}
         </p>
         
         <div className="w-full h-px bg-gray-200 my-6"></div>
         
         <div className="w-full text-left space-y-3">
-          <p className="text-sm text-charcoal-muted flex items-start gap-2">
+          <p className="text-xs text-charcoal-muted flex items-start gap-2">
             <span className="text-sage mt-0.5">✓</span>
-            $12B TAM with a verified path to $1.5B SOM
+            <span className="line-clamp-2">{tamText ? `TAM: ${tamText}` : 'Market sizing analyzed against historical case studies'}</span>
           </p>
-          <p className="text-sm text-charcoal-muted flex items-start gap-2">
+          <p className="text-xs text-charcoal-muted flex items-start gap-2">
             <span className="text-sage mt-0.5">✓</span>
-            Low regulatory risk, moderate execution risk
+            <span>{risks ? `Market risk ${risks.market_risk}/5, Execution ${risks.execution_risk}/5, Funding ${risks.funding_risk}/5` : 'Risk dimensions analyzed across 4 key vectors'}</span>
           </p>
         </div>
         

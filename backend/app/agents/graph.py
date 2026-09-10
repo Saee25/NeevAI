@@ -26,10 +26,22 @@ def build_graph():
 # Singleton graph instance
 app_graph = build_graph()
 
+import time
+
 def run_validation(idea_text: str) -> FinalReport:
     """
     Invokes the validation graph for the given startup idea text.
     """
+    start_time = time.time()
+    preview = idea_text.strip().replace("\n", " ")
+    if len(preview) > 90:
+        preview = preview[:87] + "..."
+        
+    print("\n" + "=" * 70)
+    print("🚀 [Validation Pipeline] Starting Multi-Agent Idea Validation")
+    print(f"📝 Idea: \"{preview}\"")
+    print("=" * 70)
+    
     initial_state = {
         "idea_text": idea_text,
         "market_findings": None,
@@ -39,4 +51,10 @@ def run_validation(idea_text: str) -> FinalReport:
     }
     
     final_state = app_graph.invoke(initial_state)
-    return final_state["final_report"]
+    report = final_state["final_report"]
+    
+    elapsed = time.time() - start_time
+    print("\n" + "=" * 70)
+    print(f"✨ [Validation Pipeline] Completed in {elapsed:.2f}s | Readiness Score: {report.readiness_score}/100")
+    print("=" * 70 + "\n")
+    return report

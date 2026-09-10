@@ -33,14 +33,20 @@ export const useValidation = () => {
       const data = await api.validateIdea(idea_text);
       setRawReport(data);
       
+      const tamNum = extractNumber(data.market_findings?.tam_estimate);
+      const samNum = extractNumber(data.market_findings?.sam_estimate);
+      const somNum = extractNumber(data.market_findings?.som_estimate);
+
       const mappedResults = {
         score: data.readiness_score || 0,
         scoreSummary: data.summary || "No summary provided.",
         marketData: [
-          { name: 'TAM', value: extractNumber(data.market_findings?.tam_estimate) },
-          { name: 'SAM', value: extractNumber(data.market_findings?.sam_estimate) },
-          { name: 'SOM', value: extractNumber(data.market_findings?.som_estimate) }
+          { name: 'TAM', value: tamNum || 100, text: data.market_findings?.tam_estimate || '' },
+          { name: 'SAM', value: samNum || 35, text: data.market_findings?.sam_estimate || '' },
+          { name: 'SOM', value: somNum || 10, text: data.market_findings?.som_estimate || '' }
         ],
+        rawMarket: data.market_findings,
+        rawRisks: data.risk_findings,
         marketReasoning: data.market_findings?.reasoning || "",
         competitors: (data.competitor_findings?.similar_startups || []).map(c => ({
           name: c.name,

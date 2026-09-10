@@ -37,6 +37,7 @@ def validate_idea(request: Request, req: ValidateRequest):
         
         # Check cache
         if normalized_idea in _validation_cache:
+            print(f"\n⚡ [Cache Hit] Returning cached validation report for idea: \"{normalized_idea[:60]}...\"")
             return _validation_cache[normalized_idea]
             
         # Run validation
@@ -46,12 +47,17 @@ def validate_idea(request: Request, req: ValidateRequest):
         _validation_cache[normalized_idea] = report
         return report
     except Exception as e:
+        print(f"\n❌ [Error] Failed to validate idea: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to validate idea: {str(e)}")
 
 @router.post("/scaling-advice", response_model=ScalingGuidance)
 @limiter.limit("5/minute")
 def get_scaling_advice(request: Request, req: ScalingAdviceRequest):
     try:
-        return scaling_agent.generate_advice(req.idea_text, req.revenue_context)
+        print(f"\n📈 [Scaling Advisor] Analyzing scaling advice for: \"{req.idea_text[:60]}...\" (Revenue: {req.revenue_context or 'None'})")
+        advice = scaling_agent.generate_advice(req.idea_text, req.revenue_context)
+        print(f"   ✓ Generated {len(advice.feasible_directions)} feasible direction(s) and {len(advice.not_recommended)} not-recommended direction(s).")
+        return advice
     except Exception as e:
+        print(f"\n❌ [Error] Failed to generate scaling advice: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to generate scaling advice: {str(e)}")

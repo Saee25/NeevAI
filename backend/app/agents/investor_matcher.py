@@ -5,11 +5,32 @@ from sentence_transformers import SentenceTransformer
 from typing import List
 from .models import FinalReport, InvestorMatch
 from .llm import get_llm
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, ConfigDict, model_validator
+from typing import Any
 
 class StartupProfile(BaseModel):
-    inferred_stage: str
-    inferred_sector: str
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")
+
+    inferred_stage: str = Field(default="pre-seed")
+    inferred_sector: str = Field(default="General Tech")
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_fields(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        res = dict(data)
+        if not res.get("inferred_stage"):
+            for a in ["stage", "funding_stage", "inferredStage"]:
+                if a in res and res[a]:
+                    res["inferred_stage"] = str(res[a])
+                    break
+        if not res.get("inferred_sector"):
+            for a in ["sector", "industry", "inferredSector"]:
+                if a in res and res[a]:
+                    res["inferred_sector"] = str(res[a])
+                    break
+        return res
 
 def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
@@ -41,13 +62,17 @@ class InvestorMatcher:
         raise FileNotFoundError("investors.json not found in expected locations.")
 
     def _infer_profile(self, report: FinalReport) -> StartupProfile:
-        llm = get_llm().with_structured_output(StartupProfile)
-        prompt = f"""
-        Analyze this startup idea validation report and infer its current funding stage (e.g., pre-seed, seed, series a) 
-        and its primary sector. If it's just an idea, it is 'pre-seed'.
-        
-        Summary: {report.summary}
-        """
+        llm = get_llm().with_structured_output(StartupProfile, method="json_mode")
+        prompt = f"""Analyze this startup idea validation report and infer its current funding stage (e.g., pre-seed, seed, series a) and its primary sector. If it's just an idea, it is 'pre-seed'.
+
+You must return your output in valid JSON format matching this EXACT schema:
+{{
+  "inferred_stage": "pre-seed",
+  "inferred_sector": "Primary Sector Name"
+}}
+
+Summary: {report.summary}
+"""
         return llm.invoke(prompt)
 
     def match(self, report: FinalReport) -> List[InvestorMatch]:

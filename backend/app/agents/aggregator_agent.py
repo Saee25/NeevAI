@@ -14,6 +14,8 @@ def aggregator_agent(state: ValidationState) -> dict:
     competitor = state.get("competitor_findings")
     risk = state.get("risk_findings")
     
+    print("\n  [4/4] Aggregator & Grounding Agent: Synthesizing report & scoring readiness...")
+    
     # 1. Synthesize summary using LLM
     prompt = PromptTemplate.from_template(
         """You are a startup co-founder AI. Write a comprehensive, concise summary report for the following startup idea, 
@@ -37,6 +39,7 @@ Risk Findings: {risk}
     })
     
     summary_text = summary_result.content
+    print("        ✓ Synthesized startup report summary.")
     
     # 2. Calculate explicit Founder Readiness Score (0-100)
     # Weights: market 30%, competition 25%, risk 25%, clarity of idea 20%
@@ -58,6 +61,8 @@ Risk Findings: {risk}
     clarity_score = min(20, len(idea_text.split()) // 2)
     
     readiness_score = min(100, market_score + competitor_score + risk_score + clarity_score)
+    print(f"        ✓ Founder Readiness Score computed: {int(readiness_score)}/100")
+    print(f"          (Market: {market_score}/30, Comp: {competitor_score}/25, Risk: {risk_score}/25, Clarity: {clarity_score}/20)")
     
     # 3. Groundedness Check
     # Retrieve chunks again to act as our grounding corpus
@@ -86,6 +91,8 @@ Risk Findings: {risk}
             else:
                 unverified_claims.append(sentences[i])
                 
+    print(f"        ✓ Grounding check complete: {len(unverified_claims)} unverified claim(s) flagged.")
+    
     report = FinalReport(
         readiness_score=int(readiness_score),
         summary=summary_text,

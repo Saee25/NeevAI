@@ -5,7 +5,6 @@ import ReadinessScore from './components/ReadinessScore';
 import MarketChart from './components/MarketChart';
 import CompetitorList from './components/CompetitorList';
 import RiskRadar from './components/RiskRadar';
-import GlossaryTooltip from './components/GlossaryTooltip';
 import PitchOutline from './components/PitchOutline';
 import InvestorMatches from './components/InvestorMatches';
 import OutreachDraft from './components/OutreachDraft';
@@ -73,9 +72,10 @@ function App() {
             </motion.div>
           )}
 
-          {isAnalyzing && (
+          {(isAnalyzing || (results && !revealComplete)) && (
             <AgentReveal 
               results={results} 
+              isAnalyzing={isAnalyzing}
               onComplete={() => setRevealComplete(true)} 
             />
           )}
@@ -124,7 +124,16 @@ function App() {
                 {activeTab === 'report' && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <ReadinessScore score={results.score} summary={results.scoreSummary} />
+                      <ReadinessScore 
+                        score={results.score} 
+                        summary={
+                          results.score >= 70
+                            ? "High readiness: strong market opportunity and addressable risks identified."
+                            : results.score >= 40
+                            ? "Moderate readiness: promising idea with key execution and competitive hurdles to navigate."
+                            : "Early-stage: substantial market and regulatory risks require deeper proof-of-concept."
+                        } 
+                      />
                       <RiskRadar data={results.riskData} />
                     </div>
                     
@@ -133,14 +142,41 @@ function App() {
                       <CompetitorList competitors={results.competitors} />
                     </div>
 
-                    <div className="bg-white p-8 rounded-[var(--radius)] shadow-sm">
-                      <h3 className="text-xl font-serif text-charcoal mb-4">Synthesis</h3>
-                      <p className="text-charcoal-muted leading-relaxed font-sans">
-                        {results.marketReasoning || "The market context indicates promising areas, but clear positioning will be required to capture a substantial share."}
-                      </p>
+                    {results.unverifiedClaims && results.unverifiedClaims.length > 0 && (
+                      <div className="bg-amber-50 border border-amber-200 p-6 rounded-[var(--radius)]">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-amber-600 text-lg">⚠️</span>
+                          <h3 className="text-lg font-serif text-amber-900">Grounding Notice: Unverified Claims</h3>
+                        </div>
+                        <p className="text-xs text-amber-800 mb-3">
+                          The following claim(s) from the synthesized report did not match direct evidence in the retrieved case studies and require independent founder verification:
+                        </p>
+                        <ul className="list-disc list-inside text-xs text-amber-900 space-y-1">
+                          {results.unverifiedClaims.map((claim, idx) => (
+                            <li key={idx} className="font-sans leading-relaxed">{claim}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div className="bg-white p-8 rounded-[var(--radius)] shadow-sm space-y-4">
+                      <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+                        <h3 className="text-2xl font-serif text-charcoal">Executive Summary & Validation Report</h3>
+                        <span className="text-xs font-sans uppercase tracking-wider text-sage bg-sage/10 px-3 py-1 rounded-full font-medium">
+                          Multi-Agent Grounded
+                        </span>
+                      </div>
+                      <div className="text-charcoal-muted leading-relaxed font-sans whitespace-pre-line text-sm md:text-base space-y-4 pt-2">
+                        {results.scoreSummary}
+                      </div>
                     </div>
 
-                    <ReportCard score={results.score} summary={results.scoreSummary} />
+                    <ReportCard 
+                      score={results.score} 
+                      summary={results.scoreSummary} 
+                      marketData={results.marketData}
+                      risks={results.rawRisks}
+                    />
                   </motion.div>
                 )}
 
