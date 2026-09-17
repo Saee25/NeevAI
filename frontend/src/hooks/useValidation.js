@@ -3,12 +3,25 @@ import { api } from '../lib/api';
 
 const extractNumber = (str) => {
   if (!str) return 0;
-  const match = str.match(/[\d.]+/);
+  
+  // Remove commas to safely extract numbers like 1,000
+  const cleanStr = str.replace(/,/g, '');
+  
+  // Extract the first number found in the string
+  const match = cleanStr.match(/[\d.]+/);
   if (!match) return 0;
+  
   let num = parseFloat(match[0]);
-  if (str.toLowerCase().includes('b') || str.toLowerCase().includes('billion')) num *= 1000;
-  // Let's assume M is the base unit for numbers in the chart for visual purposes,
-  // or B. If it's relative, it doesn't matter too much as long as it parses something.
+  
+  const lowerStr = cleanStr.toLowerCase();
+  
+  // Scale units assuming M (Millions) is the base chart unit
+  if (lowerStr.includes('b') || lowerStr.includes('billion')) {
+    num *= 1000;
+  } else if (lowerStr.includes('k') || lowerStr.includes('thousand')) {
+    num /= 1000;
+  }
+  
   return num;
 };
 

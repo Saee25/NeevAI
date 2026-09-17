@@ -18,8 +18,14 @@ def aggregator_agent(state: ValidationState) -> dict:
     
     # 1. Synthesize summary using LLM
     prompt = PromptTemplate.from_template(
-        """You are a startup co-founder AI. Write a comprehensive, concise summary report for the following startup idea, 
-incorporating the provided market, competitor, and risk findings. Do not invent any new numbers or facts. 
+        """You are a startup co-founder AI. Write a summary report for the following startup idea, 
+incorporating the provided market, competitor, and risk findings. 
+
+IMPORTANT RULES FOR YOUR RESPONSE:
+1. **Dynamic Length**: Scale the length and depth of your report based on the detail provided in the idea. If the idea is simple or vague, write a brief, punchy summary. If the idea is complex and detailed, provide a comprehensive analysis.
+2. **No Empty Boilerplate**: Do NOT use rigid tables or boilerplate sections if you lack the concrete data to fill them. Prioritize dense, actionable narrative insights over formatting.
+3. **Accuracy**: Do not invent any new numbers or facts. 
+4. **Clean Markdown**: Use clean markdown. Avoid nesting markdown elements that might break rendering.
 
 Idea: {idea_text}
 

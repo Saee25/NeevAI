@@ -7,7 +7,8 @@ venv/
 .pytest_cache/
 
 # Data & Indexes
-backend/app/data/
+backend/app/data/qdrant_storage/
+backend/app/data/*.pkl
 
 # Node
 node_modules/

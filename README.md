@@ -23,15 +23,11 @@
    pip install -r requirements.txt
    ```
 5. Copy `.env.example` to `.env` and fill in your API keys.
-6. Start local Qdrant via Docker:
-   ```bash
-   docker run -p 6333:6333 qdrant/qdrant
-   ```
-7. Run the server:
+6. Run the server (Qdrant will automatically run in local disk mode):
    ```bash
    uvicorn app.main:app --reload
    ```
-8. Run tests:
+7. Run tests:
    ```bash
    python -m pytest tests/
    ```
@@ -63,3 +59,18 @@
 - **Section 9: Agent Reveal Animation & Results Display**: Implemented frontend React components for presenting validation results. Built `AgentReveal` for sequential Framer Motion thinking animations, `ReadinessScore` for a circular animated SVG score, Recharts-powered `MarketChart` and `RiskRadar`, a clean `CompetitorList`, and an interactive `GlossaryTooltip` with custom dotted styling. Wired these into the main application view with a mockup state.
 - **Section 10: Downstream Feature Components**: Built downstream views and horizontal tab navigation in `App.jsx`. Added `PitchOutline` for clean presentation, `InvestorMatches` for displaying investor data, `OutreachDraft` with an editable text area and copy functionality, `ScalingAdvisor` for the secondary revenue scaling flow, and an exportable `ReportCard` component powered by `html-to-image`.
 - **Section 11: Integration & Polish**: Wired frontend to call real backend API endpoints. Implemented skeleton loading states and calm, human-readable error handling. Added Open Graph metadata, title, and favicon. Ensured responsive layout down to 375px.
+
+## Deployment for Portfolio/Resume
+
+This project is optimized to be deployed easily on free tiers for your resume:
+
+1. **Frontend (Vercel)**: 
+   - Connect your GitHub repo to Vercel.
+   - Set the Framework Preset to `Vite`.
+   - Add an Environment Variable `VITE_API_URL` pointing to your deployed backend URL.
+2. **Backend (Render or Railway)**:
+   - Connect your GitHub repo to Render (Web Service) or Railway.
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - Add your API keys (`GROQ_API_KEY`, etc.) as Environment Variables.
+   - **Note on Database**: Since Qdrant is configured to run in local disk mode, it will work perfectly out-of-the-box on these platforms. No extra database setup needed!

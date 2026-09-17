@@ -12,6 +12,8 @@ import ScalingAdvisor from './components/ScalingAdvisor';
 import ReportCard from './components/ReportCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useValidation } from './hooks/useValidation';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 function App() {
   const [idea, setIdea] = useState('');
@@ -166,8 +168,30 @@ function App() {
                           Multi-Agent Grounded
                         </span>
                       </div>
-                      <div className="text-charcoal-muted leading-relaxed font-sans whitespace-pre-line text-sm md:text-base space-y-4 pt-2">
-                        {results.scoreSummary}
+                      <div className="prose prose-sm md:prose-base prose-sage max-w-none text-charcoal-muted leading-relaxed font-sans pt-2">
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            h1: ({node, ...props}) => <h1 className="text-2xl font-serif text-charcoal mt-6 mb-4" {...props} />,
+                            h2: ({node, ...props}) => <h2 className="text-xl font-serif text-charcoal mt-5 mb-3 border-b pb-2" {...props} />,
+                            h3: ({node, ...props}) => <h3 className="text-lg font-medium text-charcoal mt-4 mb-2" {...props} />,
+                            p: ({node, ...props}) => <p className="mb-4" {...props} />,
+                            ul: ({node, ...props}) => <ul className="list-disc list-outside ml-5 mb-4 space-y-1" {...props} />,
+                            ol: ({node, ...props}) => <ol className="list-decimal list-outside ml-5 mb-4 space-y-1" {...props} />,
+                            li: ({node, ...props}) => <li className="pl-1" {...props} />,
+                            table: ({node, ...props}) => (
+                              <div className="overflow-x-auto mb-6 border border-gray-200 rounded-lg shadow-sm">
+                                <table className="w-full text-left border-collapse" {...props} />
+                              </div>
+                            ),
+                            thead: ({node, ...props}) => <thead className="bg-sage/10 text-sage border-b border-gray-200" {...props} />,
+                            th: ({node, ...props}) => <th className="p-3 font-semibold text-sm" {...props} />,
+                            td: ({node, ...props}) => <td className="p-3 border-b border-gray-100 last:border-b-0 text-sm align-top" {...props} />,
+                            strong: ({node, ...props}) => <strong className="font-semibold text-charcoal" {...props} />,
+                          }}
+                        >
+                          {results.scoreSummary}
+                        </ReactMarkdown>
                       </div>
                     </div>
 
