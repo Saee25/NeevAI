@@ -15,6 +15,24 @@ import { useValidation } from './hooks/useValidation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+const EXAMPLE_PROMPTS = [
+  {
+    title: "Local Community Service",
+    preview: "A local community tutoring platform for high school...",
+    fullText: "A local community tutoring platform for high school students. We plan to partner with local schools and charge parents a low monthly subscription, but we don't have a technical co-founder yet and are wondering where to start."
+  },
+  {
+    title: "B2B SaaS with Traction",
+    preview: "A B2B SaaS for small dental clinics to automate...",
+    fullText: "A B2B SaaS for small dental clinics to automate patient follow-ups and bookings. We have a working MVP and 5 paying clinics generating $1000 MRR, but we are struggling to figure out an efficient sales motion to scale to 100 clinics without burning cash."
+  },
+  {
+    title: "Operations & Logistics",
+    preview: "A logistics platform delivering surplus grocery food...",
+    fullText: "A logistics platform delivering surplus grocery food to low-income neighborhoods using a network of volunteer drivers. We are currently operating in one city but facing massive logistical bottlenecks and regulatory questions as we look to expand."
+  }
+];
+
 function App() {
   const [idea, setIdea] = useState('');
   const [revealComplete, setRevealComplete] = useState(false);
@@ -68,6 +86,22 @@ function App() {
                     >
                       Analyze Idea
                     </button>
+                  </div>
+                  
+                  <div className="mt-6 pt-6 border-t border-gray-100">
+                    <p className="text-xs font-semibold text-charcoal-muted mb-3 uppercase tracking-wider">Or try an example:</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {EXAMPLE_PROMPTS.map((prompt, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setIdea(prompt.fullText)}
+                          className="text-left p-4 rounded-xl border border-gray-200 hover:border-sage hover:shadow-sm bg-white hover:bg-sage/5 transition-all group focus:outline-none focus:ring-2 focus:ring-sage focus:ring-offset-2"
+                        >
+                          <h4 className="font-serif text-charcoal group-hover:text-sage text-base mb-1.5 transition-colors">{prompt.title}</h4>
+                          <p className="text-sm text-charcoal-muted font-sans leading-relaxed">{prompt.preview}</p>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -155,7 +189,11 @@ function App() {
                         </p>
                         <ul className="list-disc list-inside text-xs text-amber-900 space-y-1">
                           {results.unverifiedClaims.map((claim, idx) => (
-                            <li key={idx} className="font-sans leading-relaxed">{claim}</li>
+                            <li key={idx} className="font-sans leading-relaxed">
+                              <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }} className="inline">
+                                {claim}
+                              </ReactMarkdown>
+                            </li>
                           ))}
                         </ul>
                       </div>

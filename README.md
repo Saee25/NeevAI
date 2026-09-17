@@ -59,6 +59,7 @@
 - **Section 9: Agent Reveal Animation & Results Display**: Implemented frontend React components for presenting validation results. Built `AgentReveal` for sequential Framer Motion thinking animations, `ReadinessScore` for a circular animated SVG score, Recharts-powered `MarketChart` and `RiskRadar`, a clean `CompetitorList`, and an interactive `GlossaryTooltip` with custom dotted styling. Wired these into the main application view with a mockup state.
 - **Section 10: Downstream Feature Components**: Built downstream views and horizontal tab navigation in `App.jsx`. Added `PitchOutline` for clean presentation, `InvestorMatches` for displaying investor data, `OutreachDraft` with an editable text area and copy functionality, `ScalingAdvisor` for the secondary revenue scaling flow, and an exportable `ReportCard` component powered by `html-to-image`.
 - **Section 11: Integration & Polish**: Wired frontend to call real backend API endpoints. Implemented skeleton loading states and calm, human-readable error handling. Added Open Graph metadata, title, and favicon. Ensured responsive layout down to 375px.
+- **Section 12: RAG Pipeline Upgrade**: Implemented strict semantic anti-hallucination grounding in the aggregator agent. Integrated a hybrid data strategy by extracting structured startup metrics from Kaggle open datasets and scripting the extraction of 48 factual narrative case studies directly from Wikipedia APIs. Both datasets were successfully built into the Qdrant and BM25 indexes.
 
 ## Deployment for Portfolio/Resume
 

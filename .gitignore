@@ -9,6 +9,7 @@ venv/
 # Data & Indexes
 backend/app/data/qdrant_storage/
 backend/app/data/*.pkl
+*.csv
 
 # Node
 node_modules/

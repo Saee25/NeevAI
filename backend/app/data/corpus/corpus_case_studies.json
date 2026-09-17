@@ -1,0 +1,434 @@
+[
+  {
+    "startup": "Housing.com",
+    "region": "India",
+    "sector": "proptech",
+    "outcome": "failed",
+    "summary": "Housing.com is an Indian real estate search portal which allows customers to search for apartments for rent and sale. The company has 6,000 brokers and serves 40 cities in India including Chennai, Mumbai, Bengaluru, Kochi, Kolkata and Delhi.\n\n\n== History ==\nA group of twelve students from the Indian Institute of Technology, Bombay founded Housing.co.in in June 2012. The company purchased Housing.com from San Francisco-based internet entrepreneur, Peter Headington, and the telephone number 03-333-333-333 in September 2013 for a total of $1m.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Housing.com"
+  },
+  {
+    "startup": "WeWork",
+    "region": "Global",
+    "sector": "real estate",
+    "outcome": "failed",
+    "summary": "WeWork Inc. is an American company headquartered in New York City that provides coworking spaces, including physical and virtual shared spaces, in approximately 600 buildings in 125 cities.\nWeWork was founded in 2010 by Adam Neumann and Miguel McKelvey. Over the following 10 years, the company raised $12.8 billion in financing at valuations as high as $47 billion, mostly from the SoftBank Vision Fund, led by Masayoshi Son.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/WeWork"
+  },
+  {
+    "startup": "Dukaan",
+    "region": "India",
+    "sector": "ecommerce",
+    "outcome": "success",
+    "summary": "Dukaan is a 2024 Hindi-language comedy drama film written and directed by Siddharth Singh and Garima Wahal, and produced by S K Ahluwalia, Siddharth Singh, Garima Wahal, and Srujan Yarabolu, under the banner of Waveband Productions and Kalamkaar Picture Productions. The film features Monika Panwar, Monali Thakur and Soham Majumdar as the lead characters.\n\n\n== Cast ==\n\n\n== Plot ==\nThe film follows the journey of Chameli, who rebrands herself as Jasmine (played by Monika Panwar) to stand out from the crowd. After a personal tragedy leaves her resentful towards children, she unexpectedly finds companionship in Sumer (Sikandar Kher) and becomes a stepmother to his daughter, who is close to her age.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Dukaan"
+  },
+  {
+    "startup": "Juicero",
+    "region": "Global",
+    "sector": "hardware",
+    "outcome": "failed",
+    "summary": "Juicero Inc. () was an American company that designed, manufactured and sold the Juicero Press, a fruit and vegetable juicer. The Juicero Press featured Wi-Fi connectivity and used proprietary, single-serving packets of pre-chopped fruits and vegetables that were sold exclusively by the company on a subscription basis. From 2014 to 2017, the San Francisco-based firm received $120 million in startup venture capital from investors.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Juicero"
+  },
+  {
+    "startup": "Freshworks",
+    "region": "India",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "Freshworks Inc. is a cloud-based software-as-a-service company, founded in 2010 in Chennai, India. The company provides cloud-based tools for customer relationship management (CRM), IT service management (ITSM), and e-commerce marketing. \nIn its initial public offering, Freshworks raised $1.03 billion following earlier funding rounds from venture capital firms such as Accel and Google's venture capital fund, CapitalG.\n\n\n== History ==\nFreshworks was founded in 2010 by former Zoho employees Girish Mathrubootham and Shan Krishnasamy in Chennai, India, as Freshdesk.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Freshworks"
+  },
+  {
+    "startup": "Theranos",
+    "region": "Global",
+    "sector": "healthtech",
+    "outcome": "failed",
+    "summary": "Theranos Inc. () was an American privately held corporation that was touted as a breakthrough health technology company. Founded in 2003 by then 19-year-old Elizabeth Holmes, Theranos raised more than US$700 million from venture capitalists and private investors, resulting in a $9 billion valuation at its peak in 2013 and 2014. The company falsely claimed that it had devised blood tests that could be performed rapidly and accurately, while requiring very small amounts of blood, all using compact automated devices that the company had developed.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Theranos"
+  },
+  {
+    "startup": "Zerodha",
+    "region": "India",
+    "sector": "fintech",
+    "outcome": "success",
+    "summary": "Zerodha Broking Ltd is an Indian brokerage and financial services company, based in Bengaluru. It offers an online trading platform that facilitates institutional and retail trading of stocks, derivatives, currencies, commodities, mutual funds, and bonds. It is a member of the National Stock Exchange of India (NSE), Bombay Stock Exchange (BSE), and the Multi Commodity Exchange (MCX).\nZerodha was founded and bootstrapped by brothers Nithin and Nikhil Kamath.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Zerodha"
+  },
+  {
+    "startup": "Quibi",
+    "region": "Global",
+    "sector": "consumer social",
+    "outcome": "failed",
+    "summary": "Quibi ( KWIB-ee) was an American short-form streaming platform that generated content for viewing on mobile devices. It was founded in Los Angeles in August 2018 as NewTV by Jeffrey Katzenberg, and it was led by Meg Whitman as CEO. The service raised $1.75 billion from investors. It launched in April 2020, but shut down in December 2020 after falling short of its subscriber projections. In January 2021, Quibi's content library was sold to Roku, Inc.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Quibi"
+  },
+  {
+    "startup": "Zomato",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Zomato  is an Indian online food ordering and delivery service owned by Eternal Limited. Created in 2008 by Deepinder Goyal and Pankaj Chaddah, it began as a restaurant aggregator, providing menu information, user reviews, and recommendations, and expanding to more than 20 countries by 2015. In 2015, Zomato entered the food delivery market in India, which soon after became its core business.\nDeepinder Goyal was awarded EY Entrepreneur of the Year in 2025.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Zomato"
+  },
+  {
+    "startup": "Pebble",
+    "region": "Global",
+    "sector": "hardware",
+    "outcome": "failed",
+    "summary": "Pebble is a series of smartwatches sold by Pebble Technology Corporation of Palo Alto, California from 2013 until 2016, and by Core Devices since 2025. Created by Eric Migicovsky, Pebble was initially funded through a Kickstarter campaign in 2012, and was the most funded project in Kickstarter's history at the time. Pebble smartwatches are notable for their e-paper displays, which display the time using stylized digital watch faces, and display messages and notifications from connected Android and iOS devices. They are also capable of running downloadable apps, which are used for a wide variety of functions.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Pebble_(watch)"
+  },
+  {
+    "startup": "Khatabook",
+    "region": "India",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "A pencil ( ) is a writing or drawing implement with a solid pigment core in a protective casing that reduces the risk of core breakage and keeps it from marking the user's hand.\nPencils create marks by physical abrasion, leaving a trail of solid core material that adheres to a sheet of paper or other surface. They are distinct from pens, which dispense liquid or gel ink onto the marked surface.\nMost pencil cores are made of graphite powder mixed with a clay binder.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Pencil"
+  },
+  {
+    "startup": "Scale API",
+    "region": "Global",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "An application programming interface (API) is a connection between computers or between computer programs. It is a type of software interface, offering a service to other pieces of software. A document or standard that describes how to build such a connection or interface is called an API specification. A computer system that meets this standard is said to implement or expose an API. The term API may refer either to the specification or to the implementation.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/API"
+  },
+  {
+    "startup": "DeHaat",
+    "region": "India",
+    "sector": "agritech",
+    "outcome": "success",
+    "summary": "Herzberg am Harz (German pronunciation: [\u02c8h\u025b\u0281tsb\u025b\u0281k \u0294am \u02c8ha\u02d0\u0250ts], lit.\u2009'Herzberg on the Harz'; Esperanto: Hercbergo-\u0109e-Harco) is a town in the G\u00f6ttingen district of Lower Saxony, Germany.\n\n\n== Geography ==\nHerzberg is situated on the southwestern rim of the Harz mountain range and the Harz National Park. Natural monuments in the surrounding area include the Unicorn Cave, the Karst Trail, and the Rhume Spring.\nThe town centre is located on the Sieber river, about 32 km (20 mi) northeast of G\u00f6ttingen and 90 km (56 mi) southeast of the state capital Hanover.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Herzberg_am_Harz"
+  },
+  {
+    "startup": "AgroStar",
+    "region": "India",
+    "sector": "agritech",
+    "outcome": "success",
+    "summary": "Sanjay Ghodawat Group is an Indian conglomerate, headquartered in Kolhapur, India. Its businesses include energy, aviation, consumer products, education, real estate, retail, and textiles. It was founded in 1993.\n\n\n== History ==\nGhodawat Group, established in 1993, expanded its business into various sectors such as wind energy, high-tech agriculture, chemicals, flexible packaging, edible oils, real estate, and Fast-Moving Consumer Goods (FMCG).",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Sanjay_Ghodawat_Group"
+  },
+  {
+    "startup": "Farmers Business Network",
+    "region": "Global",
+    "sector": "agritech",
+    "outcome": "success",
+    "summary": "Farmers Business Network (FBN) is a North American farmer-to-farmer network, e-commerce and fintech  platform based in San Carlos, California. Diego Casanello took over as CEO in 2024. In July 2025, the company said its network had grown to more than 117,000 member farms across about 187 million acres.\nIn 2016, FBN launched an online input buying system called FBN Direct.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Farmers_Business_Network"
+  },
+  {
+    "startup": "Yik Yak",
+    "region": "Global",
+    "sector": "consumer social",
+    "outcome": "failed",
+    "summary": "Yik Yak is a pseudonymous social media smartphone application that initially launched in 2013 and relaunched in 2021. The app, which is available for iOS and (formerly) Android, allows college students to create and view discussion threads within a 5-mile (8.0 km) radius (termed \"Yaks\" by the application). It is similar to other anonymous sharing apps such as Nearby, but differs from others such as Whisper in that it is intended for sharing primarily with those in proximity to the user.\nDespite strong levels of growth in 2013 and 2014, following several bouts of heavy criticism in the media over the dissemination of racism, antisemitism, sexism and the facilitation of cyber-bullying, the service saw stagnation in the growth of its user base.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Yik_Yak"
+  },
+  {
+    "startup": "ShareChat",
+    "region": "India",
+    "sector": "consumer social",
+    "outcome": "success",
+    "summary": "ShareChat is an Indian social networking service platform, owned by Bangalore-based Mohalla Tech. It was founded by Ankush Sachdeva, Bhanu Pratap Singh and Farid Ahsan, and incorporated on 8 January 2015. ShareChat app has over 350 million monthly active users across 15 Indian languages. In 2022, the company was valued at $5 billion.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/ShareChat"
+  },
+  {
+    "startup": "Meesho",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Meesho Limited (short for Meri shop, transl. My shop) is an Indian e-commerce company, headquartered in Bengaluru. Founded by Vidit Aatrey and Sanjeev Barnwal in December 2015, Meesho is an online marketplace in categories such as fashion, home and kitchen, beauty and personal care, electronics accessories, and daily use products.\n\n\n== History ==\nMeesho Private Limited, formerly Fashnear Technologies Private Limited, was established by IIT Delhi graduates Vidit Aatrey and Sanjeev Barnwal in December, 2015 In 2016, the founders came up with the idea of re-establishing the platform as Meesho, one that would enable country-wide shipping for resellers with the use of social media sites as tools for marketing.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Meesho"
+  },
+  {
+    "startup": "Jawbone",
+    "region": "Global",
+    "sector": "hardware",
+    "outcome": "failed",
+    "summary": "AliphCom, Inc. (doing business as Aliph, Jawbone) was an American technology company based in San Francisco. It made consumer products, including a fitness tracker, Bluetooth headphones, and wireless speakers.\nThe company was liquidated in July 2017 and co-founder Hosain Rahman moved to health products with Jawbone Health Hub.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Jawbone_(company)"
+  },
+  {
+    "startup": "Ather Energy",
+    "region": "India",
+    "sector": "hardware",
+    "outcome": "success",
+    "summary": "Ather Energy is an Indian electric two-wheeler manufacturer headquartered in Bengaluru. It was founded by Tarun Mehta and Swapnil Jain in 2013. It manufactures electric scooters, including the Ather 450 series and Ather Rizta. It has EV manufacturing facilities in Whitefield, Bangalore, and Hosur, Tamil Nadu.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Ather_Energy"
+  },
+  {
+    "startup": "Cure.fit",
+    "region": "India",
+    "sector": "healthtech",
+    "outcome": "success",
+    "summary": "Cure (Japanese: \u30ad\u30e5\u30a2, Hepburn: Kyua) is a 1997 Japanese psychological thriller film written and directed by Kiyoshi Kurosawa. Starring Koji Yakusho and Masato Hagiwara, it follows a detective investigating a series of murders whose perpetrators all confess under strange circumstances, seemingly being driven to kill by an unknown force. As the story develops, the police realise all the murderers are in contact with a mysterious young man, who appears to have extreme memory loss. The film received positive reviews from critics and has been described in later commentary as influential on the late-1990s wave of Japanese horror cinema.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Cure_(film)"
+  },
+  {
+    "startup": "Practo",
+    "region": "India",
+    "sector": "healthtech",
+    "outcome": "success",
+    "summary": "Insulin as a medication is sold under many different trade names, which are listed below. A dagger symbol (\u2020) indicates discontinued brands. Different brands of insulin may offer any of the following preparation methods: vials, pens, cartridges, IV bags or inhalers.\nAll insulin analogues and non-analogue insulins work by enhancing glucose uptake in tissues and reducing glucose production by the liver.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_commercially_available_insulins"
+  },
+  {
+    "startup": "PharmEasy",
+    "region": "India",
+    "sector": "healthtech",
+    "outcome": "success",
+    "summary": "PharmEasy is an Indian e-pharmacy company that sells medicines, diagnostics and telehealth online.\n\n\n== History ==\nThe company was founded in 2015 by Dharmil Sheth and Dhaval Shah in Mumbai with the initial seed funding provided by their parents. The company wanted to expand beyond the Mumbai market and received their Series A funding.\nIn May 2021, PharmEasy acquired rival e-pharmacy company Medlife for an undisclosed amount.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/PharmEasy"
+  },
+  {
+    "startup": "Color Genomics",
+    "region": "Global",
+    "sector": "healthtech",
+    "outcome": "success",
+    "summary": "Color Health, Inc. (founded as Color Genomics) is an American healthcare company focused on cancer care delivery. The company operates a Virtual Cancer Clinic that provides services in cancer prevention, detection, screening, diagnosis, and survivorship care.\n\n\n== History ==\nColor was co-founded in 2015 by Elad Gil, Nish Bhat, Taylor Sittler, and Othman Laraki, who serves as the company's CEO, in Burlingame, California.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Color_Health"
+  },
+  {
+    "startup": "Paytm",
+    "region": "India",
+    "sector": "fintech",
+    "outcome": "success",
+    "summary": "PayTM (short for Pay Through Mobile) is an Indian multinational financial technology company, that specializes in digital payments and financial services, based in Noida. PayTM was founded in 2010 by Vijay Shekhar Sharma under One97 Communications. The company offers mobile payment services to consumers and enables merchants to receive payments through QR code payment, Soundbox, Android-based-payment terminal, and online payment gateway. In partnership with financial institutions, PayTM also offers financial services such as microcredit and buy now, pay later to its consumers and merchants.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Paytm"
+  },
+  {
+    "startup": "Stripe",
+    "region": "Global",
+    "sector": "fintech",
+    "outcome": "success",
+    "summary": "Stripe, LLC is an American multinational financial services and software as a service (SaaS) company dual-headquartered in South San Francisco, California, United States, and Dublin, Ireland. The company primarily offers payment-processing software and application programming interfaces for e-commerce websites and mobile applications.\nStripe is the largest privately owned financial technology company with a valuation of about $159 billion and over $1.9 trillion in payment volume processed in 2025, processing transactions for 5 million businesses in that year.\n\n\n== History ==\nIrish entrepreneur brothers John and Patrick Collison founded Stripe in Palo Alto, California, in 2010, and serve as the company's president and CEO, respectively.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Stripe,_Inc."
+  },
+  {
+    "startup": "Razorpay",
+    "region": "India",
+    "sector": "fintech",
+    "outcome": "success",
+    "summary": "CRED, legally known as Dreamplug Technologies Private Limited, is an Indian financial technology company headquartered in Bengaluru, Karnataka. Founded in 2018 by Kunal Shah, the company operates a platform for credit card bill payments, lending, and other payment services. The same offers premium financial services, exclusive rewards, and lifestyle benefits. CRED is built with individual's with strong credit scores, and intends to create a community of financially responsible users .",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Cred_(company)"
+  },
+  {
+    "startup": "Robinhood",
+    "region": "Global",
+    "sector": "fintech",
+    "outcome": "success",
+    "summary": "Robinhood Markets, Inc. is an American financial services company based in Menlo Park, California. It provides an electronic trading platform that facilitates trades of stocks, exchange-traded funds (ETFs), options, index options, futures contracts, event contracts on prediction markets, and cryptocurrency. It also offers cryptocurrency wallets, wealth management, credit cards and other banking services, some in partnership with banks insured by the FDIC, and operates a venture capital arm as well as an independent media subsidiary, Sherwood.News.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Robinhood_Markets"
+  },
+  {
+    "startup": "Lenskart",
+    "region": "India",
+    "sector": "D2C",
+    "outcome": "success",
+    "summary": "Lenskart Solutions Limited is an Indian multinational eyewear company, based in Gurgaon. As a vertically integrated company, it designs, manufactures, distributes, and retails prescription and regular eyewear. It sells its products through its website, a mobile app, and 2,000+ physical stores.\nLenskart has a manufacturing facility located in  Bhiwadi, Rajasthan, with an annual production capacity of 50 million units.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Lenskart"
+  },
+  {
+    "startup": "Warby Parker",
+    "region": "Global",
+    "sector": "D2C",
+    "outcome": "success",
+    "summary": "Warby Parker Inc. is an American eyewear brand and retailer of prescription glasses, contact lenses, and sunglasses, based in New York City. It also offers eye exams.  Originally founded in 2010 as an online-only retailer, the company now generates about two-thirds of its revenue from its 276 physical retail stores, 271 of which are in the U.S. and 5 of which are in Canada.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Warby_Parker"
+  },
+  {
+    "startup": "Nykaa",
+    "region": "India",
+    "sector": "D2C",
+    "outcome": "success",
+    "summary": "FSN E-Commerce Ventures Ltd, doing business as Nykaa, is an Indian retail company, headquartered in Mumbai. It sells beauty, wellness and fashion products online and through physical stores. It also operates an eB2B distribution business called Superstore by Nykaa.\nIn 2020, it became the first Indian unicorn startup headed by a woman.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Nykaa"
+  },
+  {
+    "startup": "Casper",
+    "region": "Global",
+    "sector": "D2C",
+    "outcome": "success",
+    "summary": "Casper Sleep Inc. is an American company headquartered in New York City that designs and sells sleep products including mattresses, pillows, furniture, bedding and sleep accessories. Founded in 2014, the company initially marketed itself as a direct-to-consumer e-commerce brand before expanding into physical retail stores and partnerships with other retailers. Casper\u2019s mattresses are designed and assembled in the United States and sold across the country.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Casper_Sleep"
+  },
+  {
+    "startup": "Swiggy",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Swiggy Limited is an Indian online food ordering and delivery company, headquartered in Bengaluru. As of 2025, it operates food delivery services in more than 700 Indian cities, and quick-commerce services under the name Instamart in 100 cities. The company was incorporated in 2013.\nSwiggy competes primarily with Zomato in food delivery.",
+    "category": "competition",
+    "source_url": "https://en.wikipedia.org/wiki/Swiggy"
+  },
+  {
+    "startup": "Airbnb",
+    "region": "Global",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Airbnb, Inc. ( AIR-bee-en-BEE, an abbreviation of its original name, \"Airbed and Breakfast\") is an American company operating an online marketplace for short-and-long-term homestays, experiences and services in various countries and regions. It acts as a broker and charges a commission from each booking. Airbnb was founded in 2008 by Brian Chesky, Nathan Blecharczyk, and Joe Gebbia.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Airbnb"
+  },
+  {
+    "startup": "Uber",
+    "region": "Global",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport. It is headquartered in San Francisco, California, and operates in approximately 70 countries and 15,000 cities worldwide. It is the largest ridesharing company worldwide with over 202 million monthly active users and 10 million active drivers and couriers.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Uber"
+  },
+  {
+    "startup": "Ola",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Ola Electric Mobility Limited is an Indian electric vehicle manufacturer headquartered in Bengaluru. Founded in 2017 by Bhavish Aggarwal, the company designs and manufactures electric two-wheelers, including the Ola S1 in three variants named Ola S1 Air, Ola S1X and S1 Pro. It has its manufacturing facility located in Krishnagiri, Tamil Nadu.\nThe company also produces battery cells at its manufacturing facility in Tamil Nadu, which supplies energy storage products for its vehicles and other applications.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Ola_Electric"
+  },
+  {
+    "startup": "Pepperfry",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Pepperfry Limited, formerly known as Pepperfry, is an Indian online marketplace for furniture and home d\u00e9cor. The company was founded in July 2011 by Ambareesh Murty and Ashish Shah, and is headquartered in Mumbai. As of 2023, Pepperfry has 43 company-owned studios and 142 studios operating under its franchise model.\nIn May 2022, the company became a public company and announced plans to list on stock exchanges.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Pepperfry"
+  },
+  {
+    "startup": "Stayzilla",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "failed",
+    "summary": "Google is a computer software and a web search engine company that acquired, on average, more than one company per week in 2010 and 2011. The table below is an incomplete list of acquisitions, with each acquisition listed being for the respective company in its entirety, unless otherwise specified. The acquisition date listed is the date of the agreement between Google and the acquisition subject. As Google is headquartered in the United States, acquisition is listed in US dollars.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_mergers_and_acquisitions_by_Alphabet"
+  },
+  {
+    "startup": "Voonik",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "failed",
+    "summary": "Voonik is an online marketplace operating in products for women's fashion. The company is based in Bengaluru, Karnataka.\nThe startup was launched as a personal mobile application, before developing a website.\n\n\n== Background ==\nVoonik was founded in 2013 by Sujayath Ali and Navaneetha Krishnan.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Voonik"
+  },
+  {
+    "startup": "ShopClues",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "failed",
+    "summary": "ShopClues is an Indian online marketplace, owned by Clues Network Pvt. Ltd. The company was established in July 2011 by Sanjay Sethi, Sandeep Aggarwal and Radhika Aggarwal. In 2015, ShopClues was valued at US$1.1 billion, with Tiger Global, Helion Ventures, and Nexus Venture Partners as major investors.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/ShopClues"
+  },
+  {
+    "startup": "LocalBanya",
+    "region": "India",
+    "sector": "ecommerce",
+    "outcome": "failed",
+    "summary": "Gorna Banya (Bulgarian: \u0413\u043e\u0440\u043d\u0430 \u0431\u0430\u043d\u044f) is a neighbourhood in Sofia, the capital city of Bulgaria. It is one of the city's oldest villa zones. The town is part of Sofia's Ovcha Kupel District. It is located in the southwestern part of the capital and borders the neighbourhoods of Knyazhevo to the south and Ovcha Kupel to the northeast.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/Gorna_Banya"
+  },
+  {
+    "startup": "TinyOwl",
+    "region": "India",
+    "sector": "foodtech",
+    "outcome": "failed",
+    "summary": "The South Devon Railway 0-4-0 locomotives were small 0-4-0 broad gauge locomotives operated on the South Devon Railway, Cornwall Railway, mainly on the dockside lines around Plymouth.\nOn 1 February 1876 the South Devon Railway was amalgamated with the Great Western Railway, the locomotives were given numbers by their new owners but continued to carry their names too.\n\n\n== Tiny ==\n\nTiny (1868 \u2013 1883) GWR no. 2180\nTiny was built by Sara and Company of Penryn, Cornwall.",
+    "category": "risk",
+    "source_url": "https://en.wikipedia.org/wiki/South_Devon_Railway_0-4-0_locomotives"
+  },
+  {
+    "startup": "Grofers",
+    "region": "India",
+    "sector": "marketplace",
+    "outcome": "success",
+    "summary": "Blinkit is an Indian quick-commerce company owned by Eternal Limited. It was founded in December 2013 and is based in Gurgaon.\nCustomers of the company use a mobile app to order groceries and essentials online, which are sourced from the company's dark stores and delivered in 10 minutes. Blinkit operates in 153 cities in India, as of March 2025.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Blinkit"
+  },
+  {
+    "startup": "Delhivery",
+    "region": "India",
+    "sector": "logistics",
+    "outcome": "success",
+    "summary": "Delhivery is an Indian logistics and supply chain company, based in Gurgaon. It was founded in 2011 by Sahil Barua, Mohit Tandon, Bhavesh Manglani, Suraj Saharan, and Kapil Bharati.\n\n\n== History ==\n\nDelhivery was established in May 2011 as SSN Logistics Ltd, initially conceptualised as a hyperlocal express delivery service provider for offline stores, delivering flowers and food in Gurgaon. During that time, the online retailing and e-commerce segment was expanding rapidly in India, with global investors showing significant interest in the industry.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Delhivery"
+  },
+  {
+    "startup": "Udaan",
+    "region": "India",
+    "sector": "B2B marketplace",
+    "outcome": "success",
+    "summary": "Udaan (transl. Flight) is a 2010 Indian Hindi-language coming-of-age drama film directed by Vikramaditya Motwane in his directorial debut. It was produced by Sanjay Singh, Anurag Kashyap, and Ronnie Screwvala under their production companies Anurag Kashyap Films and UTV Spotboy, respectively. Written by Motwane and Kashyap, the film stars debutante Rajat Barmecha, Ronit Roy, Aayan Boradia, and Ram Kapoor.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Udaan_(2010_film)"
+  },
+  {
+    "startup": "Postman",
+    "region": "India",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "Postman, Inc. is an American software company that offers an API testing platform for developers. Postman also maintains the Postman API Network, a directory of over 100,000 public APIs that is listed as the world\u2019s largest such collection. The company is headquartered in San Francisco and maintains additional offices in Tokyo and Bengaluru, where Postman was founded.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Postman,_Inc."
+  },
+  {
+    "startup": "Notion",
+    "region": "Global",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "Notion is a productivity and note-taking application developed by Notion Labs, Inc. It serves as a workspace for notetaking, knowledge management, data organization, and project and task tracking. It was first released in 2016 and is available on the web and as desktop and mobile apps. It is headquartered in San Francisco.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Notion_(productivity_software)"
+  },
+  {
+    "startup": "Figma",
+    "region": "Global",
+    "sector": "B2B SaaS",
+    "outcome": "success",
+    "summary": "Figma is a collaborative web-based application for user interface design. It supports the design of mobile apps, websites, and illustrations, and has 13 million users as of 2025. It is the product of the eponymous Figma, Inc., founded in 2012 by Dylan Field and Evan Wallace. \nFigma began as an application allowing multiple users to edit the same design simultaneously.",
+    "category": "scaling",
+    "source_url": "https://en.wikipedia.org/wiki/Figma"
+  }
+]

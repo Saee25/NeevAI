@@ -13,3 +13,7 @@ slowapi
 python-dotenv
 langchain-text-splitters
 cachetools
+kaggle
+pandas
+beautifulsoup4
+googlesearch-python
