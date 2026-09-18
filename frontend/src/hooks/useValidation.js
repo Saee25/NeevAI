@@ -80,6 +80,7 @@ export const useValidation = () => {
       
       setResults(mappedResults);
     } catch (err) {
+      console.error("[useValidation] Validation failed:", err);
       setError(err.message || "Something didn't load right — try again in a moment.");
     } finally {
       setIsAnalyzing(false);

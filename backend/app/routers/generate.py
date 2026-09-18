@@ -5,6 +5,7 @@ from app.agents.generation_agents import PitchOutlineAgent, OutreachDraftAgent
 from app.agents.investor_matcher import InvestorMatcher
 from app.middleware.rate_limit import limiter
 from typing import List
+import traceback
 
 router = APIRouter(prefix="/generate", tags=["generation"])
 
@@ -32,6 +33,7 @@ def generate_pitch_outline(request: Request, req: PitchRequest):
         return outline
     except Exception as e:
         print(f"\n❌ [Error] Failed to generate pitch outline: {str(e)}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to generate pitch outline: {str(e)}")
 
 @router.post("/investor-matches", response_model=List[InvestorMatch])
@@ -44,6 +46,7 @@ def generate_investor_matches(request: Request, req: MatchRequest):
         return matches
     except Exception as e:
         print(f"\n❌ [Error] Failed to find investor matches: {str(e)}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to find investor matches: {str(e)}")
 
 @router.post("/outreach-draft", response_model=OutreachDraft)
@@ -56,4 +59,5 @@ def generate_outreach_draft(request: Request, req: OutreachRequest):
         return draft
     except Exception as e:
         print(f"\n❌ [Error] Failed to generate outreach draft: {str(e)}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to generate outreach draft: {str(e)}")

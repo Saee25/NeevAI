@@ -1,33 +1,65 @@
-# Neev AI
+# Neev AI - Your AI Co-Founder
+
+Neev AI is an intelligent, multi-agent platform designed to validate and refine early-stage startup ideas. Instead of relying purely on generalized LLM knowledge, Neev AI uses a **Retrieval-Augmented Generation (RAG)** pipeline to ground its analysis in real-world historical startup case studies and verified market data.
+
+By taking a plain-text description of a startup idea, Neev AI dynamically orchestrates a team of specialized AI agents to generate a comprehensive viability report, assess multi-dimensional risks, identify comparable startups, and even generate investor outreach drafts.
+
+## Key Features
+
+- **Multi-Agent Orchestration**: Built with LangGraph, the backend orchestrates a Market Agent, Competitor Agent, Risk Agent, and an Aggregator Agent that work sequentially to evaluate the startup idea.
+- **Hybrid RAG Pipeline**: Combines dense vector search (`sentence-transformers`) with sparse keyword search (`BM25`) and Reciprocal Rank Fusion (RRF) to retrieve the most relevant case studies.
+- **Anti-Hallucination Grounding**: Employs a strict sentence-by-sentence semantic verification step. If the final AI-generated report makes claims that are not backed up by the retrieved context, they are explicitly flagged in a "Grounding Notice" for the user.
+- **Downstream Generation Tools**: Beyond the core validation report, the platform automatically generates a Pitch Outline, a Qualitative Scaling Advisor, Investor Matches, and personalized Outreach Drafts.
+- **Modern, Calm UI**: A beautiful, minimalist frontend built with React, Tailwind CSS, Framer Motion (for sequential thinking animations), and Recharts (for dynamic market and risk charting).
+
+## Major Tech Stack
+
+### Frontend
+- **Framework**: React (Vite)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Data Visualization**: Recharts
+- **Markdown**: `react-markdown` with GFM support
+
+### Backend
+- **Framework**: FastAPI (Python 3.10+)
+- **AI/LLM Framework**: LangGraph, LangChain, Groq API (Llama3/Mixtral)
+- **Vector Database**: Qdrant (Local Disk Mode)
+- **Embeddings & Search**: `sentence-transformers` (all-MiniLM-L6-v2), `rank_bm25`
+
+## Datasets Used
+
+To ensure high-quality, grounded analysis, Neev AI was seeded with specialized data:
+1. **Wikipedia Narrative Case Studies**: 48 deeply factual narrative histories of prominent startup successes and failures (e.g., WeWork, Airbnb, Theranos, Stripe) extracted via Wikipedia's APIs.
+2. **Kaggle Startup Metrics Dataset**: Structured data defining market trajectories, funding rounds, and operational statuses, used to ground the numerical and risk evaluations of the model.
+
+---
 
 ## Setup Instructions
 
 ### Prerequisites
 - Python 3.10+
-- Node.js & npm (Required for the frontend)
+- Node.js & npm 
 
 ### Backend Setup
 1. Navigate to the backend directory:
    ```bash
    cd backend
    ```
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   ```
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - Mac/Linux: `source venv/bin/activate`
-4. Install dependencies:
+2. Create and activate a virtual environment:
+   - Windows: `python -m venv venv` and `venv\Scripts\activate`
+   - Mac/Linux: `python3 -m venv venv` and `source venv/bin/activate`
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-5. Copy `.env.example` to `.env` and fill in your API keys.
-6. Run the server (Qdrant will automatically run in local disk mode):
+4. Copy `.env.example` to `.env` and configure your API keys (e.g., `GROQ_API_KEY`).
+5. Run the server:
+   *(Qdrant is configured to run locally using the file system, so no separate database container is required.)*
    ```bash
    uvicorn app.main:app --reload
    ```
-7. Run tests:
+6. (Optional) Run tests:
    ```bash
    python -m pytest tests/
    ```
@@ -41,37 +73,9 @@
    ```bash
    npm install
    ```
-3. Run the dev server:
+3. Run the development server:
    ```bash
    npm run dev
    ```
 
-## Current Progress
-
-- **Section 1: Project Initialization**: Base FastAPI backend and React frontend structure.
-- **Section 2: Data Ingestion Pipeline**: Corpus chunking, preprocessing, and glossary extraction setup.
-- **Section 3: Hybrid Retrieval Layer**: Implemented Qdrant dense vector search (via `sentence-transformers`) and sparse search (`rank_bm25`) combined with Reciprocal Rank Fusion (RRF).
-- **Section 4: Core Validation Agents (LangGraph Orchestrator)**: Implemented Market, Risk, and Competitor analysis agents using LangGraph for multi-step execution.
-- **Section 5: Downstream Generation Agents**: Added Pitch Outline generation, Investor Matching using `sentence-transformers` semantic matching, and personalized Outreach Draft generation.
-- **Section 6: Scaling Advisor Agent**: Implemented `ScalingAgent` to provide qualitative scaling guidance based on retrieved case studies without making direct numeric recommendations.
-- **Section 7: API Finalization**: Wired routers into `main.py`, added CORS, `slowapi` rate limiting (5 req/min for validate, 10 req/min for generate), global error handling, simple in-memory caching for validation, health endpoint, and comprehensive pytest coverage using mocked LLM responses.
-- **Section 8: Frontend Design System & Layout**: Set up Tailwind CSS with custom design tokens (cream, sage, charcoal), configured typography (Fraunces, Inter), and built a clean, calm, minimal hero landing page layout and a reusable Card component.
-- **Section 9: Agent Reveal Animation & Results Display**: Implemented frontend React components for presenting validation results. Built `AgentReveal` for sequential Framer Motion thinking animations, `ReadinessScore` for a circular animated SVG score, Recharts-powered `MarketChart` and `RiskRadar`, a clean `CompetitorList`, and an interactive `GlossaryTooltip` with custom dotted styling. Wired these into the main application view with a mockup state.
-- **Section 10: Downstream Feature Components**: Built downstream views and horizontal tab navigation in `App.jsx`. Added `PitchOutline` for clean presentation, `InvestorMatches` for displaying investor data, `OutreachDraft` with an editable text area and copy functionality, `ScalingAdvisor` for the secondary revenue scaling flow, and an exportable `ReportCard` component powered by `html-to-image`.
-- **Section 11: Integration & Polish**: Wired frontend to call real backend API endpoints. Implemented skeleton loading states and calm, human-readable error handling. Added Open Graph metadata, title, and favicon. Ensured responsive layout down to 375px.
-- **Section 12: RAG Pipeline Upgrade**: Implemented strict semantic anti-hallucination grounding in the aggregator agent. Integrated a hybrid data strategy by extracting structured startup metrics from Kaggle open datasets and scripting the extraction of 48 factual narrative case studies directly from Wikipedia APIs. Both datasets were successfully built into the Qdrant and BM25 indexes.
-
-## Deployment for Portfolio/Resume
-
-This project is optimized to be deployed easily on free tiers for your resume:
-
-1. **Frontend (Vercel)**: 
-   - Connect your GitHub repo to Vercel.
-   - Set the Framework Preset to `Vite`.
-   - Add an Environment Variable `VITE_API_URL` pointing to your deployed backend URL.
-2. **Backend (Render or Railway)**:
-   - Connect your GitHub repo to Render (Web Service) or Railway.
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - Add your API keys (`GROQ_API_KEY`, etc.) as Environment Variables.
-   - **Note on Database**: Since Qdrant is configured to run in local disk mode, it will work perfectly out-of-the-box on these platforms. No extra database setup needed!
+Open your browser to `http://localhost:5173` to interact with Neev AI!

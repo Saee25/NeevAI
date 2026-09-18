@@ -14,22 +14,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useValidation } from './hooks/useValidation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const EXAMPLE_PROMPTS = [
   {
-    title: "Local Community Service",
-    preview: "A local community tutoring platform for high school...",
-    fullText: "A local community tutoring platform for high school students. We plan to partner with local schools and charge parents a low monthly subscription, but we don't have a technical co-founder yet and are wondering where to start."
+    title: "Short-Term Rental Marketplace",
+    preview: "A peer-to-peer online marketplace for short-term...",
+    fullText: "A peer-to-peer online marketplace for short-term homestays and vacation rentals. We want to connect homeowners who have spare rooms with travelers looking for affordable, local lodging experiences instead of traditional hotels."
   },
   {
-    title: "B2B SaaS with Traction",
-    preview: "A B2B SaaS for small dental clinics to automate...",
-    fullText: "A B2B SaaS for small dental clinics to automate patient follow-ups and bookings. We have a working MVP and 5 paying clinics generating $1000 MRR, but we are struggling to figure out an efficient sales motion to scale to 100 clinics without burning cash."
+    title: "Developer Payments API",
+    preview: "A unified, developer-first API infrastructure for...",
+    fullText: "A unified, developer-first API infrastructure for internet businesses to easily accept online payments, manage billing, and handle payout logistics globally without dealing with legacy banking portals."
   },
   {
-    title: "Operations & Logistics",
-    preview: "A logistics platform delivering surplus grocery food...",
-    fullText: "A logistics platform delivering surplus grocery food to low-income neighborhoods using a network of volunteer drivers. We are currently operating in one city but facing massive logistical bottlenecks and regulatory questions as we look to expand."
+    title: "Flexible Co-Working Spaces",
+    preview: "A commercial real estate company that leases large...",
+    fullText: "A commercial real estate company that leases large office buildings and transforms them into beautifully designed co-working spaces. We plan to sublet desks and private offices to freelancers and startups on flexible monthly memberships."
   }
 ];
 
@@ -59,7 +60,8 @@ function App() {
         </header>
 
         <main className="space-y-12">
-          {!isAnalyzing && !results && (
+          <ErrorBoundary>
+            {!isAnalyzing && !results && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <Card>
                 <div className="flex flex-col gap-6">
@@ -173,7 +175,7 @@ function App() {
                       <RiskRadar data={results.riskData} />
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                       <MarketChart data={results.marketData} />
                       <CompetitorList competitors={results.competitors} />
                     </div>
@@ -189,8 +191,8 @@ function App() {
                         </p>
                         <ul className="list-disc list-inside text-xs text-amber-900 space-y-1">
                           {results.unverifiedClaims.map((claim, idx) => (
-                            <li key={idx} className="font-sans leading-relaxed">
-                              <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }} className="inline">
+                            <li key={idx} className="font-sans leading-relaxed inline-markdown">
+                              <ReactMarkdown components={{ p: ({node, ...props}) => <span className="inline" {...props} /> }}>
                                 {claim}
                               </ReactMarkdown>
                             </li>
@@ -270,6 +272,7 @@ function App() {
               </motion.div>
             )}
           </AnimatePresence>
+          </ErrorBoundary>
         </main>
       </div>
     </div>

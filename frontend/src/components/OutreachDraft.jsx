@@ -31,7 +31,10 @@ const OutreachDraft = ({ report, investor }) => {
         setBody(data.body);
         setError(null);
       })
-      .catch(err => setError(err.message || "Something didn't load right — try again in a moment."))
+      .catch(err => {
+        console.error("[OutreachDraft] Failed to generate draft:", err);
+        setError(err.message || "Something didn't load right — try again in a moment.");
+      })
       .finally(() => setLoading(false));
   }, [report, investor]);
 

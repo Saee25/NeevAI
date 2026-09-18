@@ -3,8 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 
 export default function MarketChart({ data }) {
   return (
-    <div className="bg-white p-6 rounded-[var(--radius)] shadow-sm w-full flex flex-col justify-between">
-      <h3 className="text-xl font-serif text-charcoal mb-3">Market Size Estimation</h3>
+    <div className="bg-white p-6 rounded-[var(--radius)] shadow-sm w-full h-fit flex flex-col">
+      <h3 className="text-xl font-serif text-charcoal mb-4">Market Size Estimation</h3>
       
       <div className="h-[140px] w-full mb-4">
         <ResponsiveContainer width="100%" height="100%">

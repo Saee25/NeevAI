@@ -16,6 +16,7 @@ const ReportCard = ({ score, summary, marketData, risks }) => {
       link.href = dataUrl;
       link.click();
     } catch (err) {
+      console.error("[ReportCard] Clipboard copy failed:", err);
       console.error('Failed to export image', err);
       alert('Failed to export report card.');
     } finally {

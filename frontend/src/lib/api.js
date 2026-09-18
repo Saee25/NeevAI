@@ -1,7 +1,7 @@
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 async function fetchWithHandling(url, options = {}) {
-  const timeoutMs = options.timeout || 60000;
+  const timeoutMs = options.timeout || 600000;
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -26,6 +26,7 @@ async function fetchWithHandling(url, options = {}) {
 
     return await response.json();
   } catch (error) {
+    console.error("[API Error] fetchWithHandling failed:", error);
     clearTimeout(id);
     if (error.name === 'AbortError') {
       throw new Error("Request timed out. The server took too long to respond.");

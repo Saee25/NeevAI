@@ -35,7 +35,8 @@ const ScalingAdvisor = ({ ideaText }) => {
       const data = await api.getScalingAdvice(ideaText, revenueContext);
       setResult(data);
     } catch (err) {
-      setError(err.message || "Something didn't load right — try again in a moment.");
+      console.error("[ScalingAdvisor] Failed to fetch scaling advice:", err);
+      setError(err.message || "Failed to fetch scaling advice.");
     } finally {
       setIsAnalyzing(false);
     }

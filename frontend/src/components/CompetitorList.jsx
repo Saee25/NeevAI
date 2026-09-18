@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function CompetitorList({ competitors }) {
   return (
-    <div className="bg-white p-6 rounded-[var(--radius)] shadow-sm w-full h-full">
+    <div className="bg-white p-6 rounded-[var(--radius)] shadow-sm w-full h-fit">
       <h3 className="text-xl font-serif text-charcoal mb-6">Similar Startups</h3>
-      <div className="space-y-4">
+      <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
         {competitors.map((comp, index) => (
           <div key={index} className="flex flex-col p-4 border border-gray-100 rounded-xl hover:shadow-sm transition-shadow">
             <div className="flex justify-between items-start mb-2">

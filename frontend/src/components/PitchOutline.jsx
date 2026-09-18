@@ -38,7 +38,10 @@ const PitchOutline = ({ report }) => {
         setPitch(data);
         setError(null);
       })
-      .catch(err => setError(err.message || "Something didn't load right — try again in a moment."))
+      .catch(err => {
+        console.error("[PitchOutline] Failed to generate pitch:", err);
+        setError(err.message || "Something didn't load right — try again in a moment.");
+      })
       .finally(() => setLoading(false));
   }, [report]);
 

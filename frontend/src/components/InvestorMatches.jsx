@@ -29,7 +29,10 @@ const InvestorMatches = ({ report, onSelectInvestor, selectedInvestor }) => {
         setInvestors(data);
         setError(null);
       })
-      .catch(err => setError(err.message || "Something didn't load right — try again in a moment."))
+      .catch(err => {
+        console.error("[InvestorMatches] Failed to load matches:", err);
+        setError(err.message || "Something didn't load right — try again in a moment.");
+      })
       .finally(() => setLoading(false));
   }, [report]);
 

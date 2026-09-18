@@ -7,6 +7,7 @@ from app.agents.graph import run_validation
 from app.middleware.rate_limit import limiter
 import re
 from cachetools import LRUCache
+import traceback
 
 router = APIRouter(prefix="/validate", tags=["validate"])
 
@@ -48,6 +49,7 @@ def validate_idea(request: Request, req: ValidateRequest):
         return report
     except Exception as e:
         print(f"\n❌ [Error] Failed to validate idea: {str(e)}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to validate idea: {str(e)}")
 
 @router.post("/scaling-advice", response_model=ScalingGuidance)
@@ -60,4 +62,5 @@ def get_scaling_advice(request: Request, req: ScalingAdviceRequest):
         return advice
     except Exception as e:
         print(f"\n❌ [Error] Failed to generate scaling advice: {str(e)}")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to generate scaling advice: {str(e)}")
